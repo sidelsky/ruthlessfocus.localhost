@@ -8,6 +8,7 @@
 
 		//Post type - Events
 		create_post_type(
+
 			array(
 				'name' => 'Meetings',
 				'singular_name' => 'Meeting',
@@ -18,7 +19,7 @@
                 'hierarchical' => false,
                 'show_in_rest' => true,
 				'rewrite' => array(
-					'slug' => 'event',
+					'slug' => 'meeting',
 					'with_front' => TRUE
 				),
 				'supports' => array(
@@ -28,7 +29,8 @@
 					'excerpt',
 					'revisions'
 				)
-			)
+            )
+            
 		);
 		//End post type
 
