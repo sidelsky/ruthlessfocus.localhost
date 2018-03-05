@@ -1,35 +1,23 @@
 <?php
-  //Wordpress reset (removes redundant scripts)
-  require('functions/reset.php');
 
-  //Enqueue scripts, styles etc.
-  require('functions/enqueues.php');
+    /**
+	* Update options
+	* update_option('siteurl','inchbald.dev');
+	* update_option('home','inchbald.dev');
+	*/
 
-  //Utilities
-  require('functions/utilities.php');
+    /**
+    * Require all functions within the functions folder
+    */
+    function getFunctions() {
 
-  //Helper functions
-  require('functions/helpers.php');
+        $folder = '/functions/*.php';
+        $files = glob(dirname(__FILE__) . $folder);
 
-  //Project specific
-  require('functions/project.php');
+        foreach( $files as $file ) {
+            require_once( $file );
+        }
 
-  //Hide user toolbar
-  require('functions/remove-admin-bar.php');
+    }
 
-  //Custom GF spinner
-  require('functions/custom-form-spinner.php');
-
-  //Move GF script to footer
-  require('functions/gf-js-to-footer.php');
-
-  //Redirect home
-  require('functions/redirect.php');
-
-
-  //Custom Post Types
-  //require('functions/custom-post-types.php');
-
-  //Custom Taxonomies
-  //require('functions/custom-taxonomies.php');
-?>
+    getFunctions();
