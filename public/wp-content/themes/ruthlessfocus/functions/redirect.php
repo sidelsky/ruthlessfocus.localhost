@@ -7,24 +7,24 @@
  *
 */
 
-// function redirect_homepage() {
+function redirect_homepage() {
 
-//   //Get the home url - Output example: http://www.example.com.
-//   $url = home_url();
+  //Get the home url - Output example: http://www.example.com.
+  $url = home_url();
 
-//   //Lets check to see if the 'Theme my login' plugin is active.
-//   if ( !function_exists( 'theme_my_login' )  ) {
+  //Lets check to see if the 'Theme my login' plugin is active.
+  if ( !function_exists( 'theme_my_login' )  ) {
 
-//     //If the 'Theme my login' is inactive and if this is not the home or front page let's reditect the user.
-//     if( ! is_home() && ! is_front_page() ) {
-//       wp_redirect( $url, 301 );
-//       exit;
-//     }
+    //If the 'Theme my login' is inactive and if this is not the home or front page let's reditect the user.
+    if( ! is_home() && ! is_front_page() ) {
+      wp_redirect( $url, 301 );
+      exit;
+    }
 
-//   }
+  }
 
-// }
+}
 
-// add_action( 'template_redirect', 'redirect_homepage' );
+add_action( 'template_redirect', 'redirect_homepage' );
 
  ?>

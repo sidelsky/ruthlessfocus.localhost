@@ -1,0 +1,26 @@
+.gradient {
+
+  @at-root {
+
+    @keyframes gradient_animate {
+      0% {
+        background-position: 84% 0%;
+      }
+
+      50% {
+        background-position: 17% 100%;
+      }
+
+      100% {
+        background-position: 84% 0%;
+      }
+
+    }
+
+  }
+
+  $animation-speed: 25s;
+
+  animation: gradient_animate $animation-speed linear infinite;
+  background: linear-gradient(45deg, $ms-yellow, $ms-blue, $ms-purple, $ms-red) repeat scroll 0 0 / 800% 800%;
+}

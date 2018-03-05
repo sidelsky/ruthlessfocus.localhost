@@ -1,6 +1,6 @@
 html {
   box-sizing: border-box;
-  font: 62.5%;
+  font-size: 62.5%;
   min-height: 100%;
   overflow-y: scroll;
   -webkit-font-smoothing: antialiased;
@@ -8,6 +8,16 @@ html {
   -o-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+body {
+  background: #ccc;
+  color: #000;
+  font-size: 1rem;
+  font-smoothing: antialiased;
+  line-height: 1.33;
+  text-rendering: optimizeLegibility;
+}
+
 
 *,
 *::before,

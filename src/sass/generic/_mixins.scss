@@ -80,3 +80,92 @@
   transform: translateY(-50%);
 }
 
+//Placeholder
+@mixin placeholder($color: $white, $size: 16px) {
+	&::-webkit-input-placeholder,
+	&::-moz-placeholder,
+	&:-ms-input-placeholder,
+	&:-moz-placeholder  { /* Chrome/Opera/Safari */
+		text-indent: 0%;
+		transition: text-indent .2s ease;
+		color: $color;
+		font-size: $size;
+	}
+
+	&:focus::-webkit-input-placeholder,
+	&:focus::-moz-placeholder,
+	&:focus:-ms-input-placeholder,
+	&:focus:-moz-placeholder { 
+		text-indent: -100%;
+		transition: text-indent .2s ease;
+	}
+
+}
+
+
+@mixin placeholder($color: $white, $size: 16px) {
+	&::-webkit-input-placeholder { /* WebKit browsers */
+		color: $color;
+		font-size: $size;
+		opacity: 1;
+		text-indent: 0%;
+		transition: text-indent .7s ease;
+	}
+	&:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+		color: $color;
+		font-size: $size;
+		opacity: 1;
+		text-indent: 0%;
+		transition: text-indent .7s ease;
+	}
+	&::-moz-placeholder { /* Mozilla Firefox 19+ */
+		color: $color;
+		font-size: $size;
+		opacity: 1;
+		text-indent: 0%;
+		transition: text-indent .7s ease;
+	}
+	&:-ms-input-placeholder { /* Internet Explorer 10+ */
+		color: $color;
+		font-size: $size;
+		opacity: 1;
+		text-indent: 0%;
+		transition: text-indent .7s ease;
+	}
+	&:placeholder-shown {
+		color: $color;
+		font-size: $size;
+		opacity: 1;
+		text-indent: 0%;
+		transition: text-indent .7s ease;
+	}
+
+	// Animate
+	&:focus::-webkit-input-placeholder { /* WebKit browsers */
+		text-indent: -100%;
+		transition: text-indent .7s ease;
+	}
+	&:focus:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+		text-indent: -100%;
+		transition: text-indent .7s ease;
+	}
+	&:focus::-moz-placeholder { /* Mozilla Firefox 19+ */
+		text-indent: -100%;
+		transition: text-indent .7s ease;
+	}
+	&:focus:-ms-input-placeholder { /* Internet Explorer 10+ */
+		text-indent: -100%;
+		transition: text-indent .7s ease;
+	}
+	&:focus:placeholder-shown {
+		text-indent: -100%;
+		transition: text-indent .7s ease;
+	}
+  }
+  
+
+
+// @include context {
+// 	color: $color;
+// 	font-size: $size;
+// }

@@ -2,10 +2,31 @@
 $row-width: 120rem !default;
 $max-width: 80%;
 
-//Colors
+//Primary colours
 $black: #000;
 $white: #fff;
 $grey: #999;
+
+//Colors
+$ms-black: #404040;
+$ms-grey: #f4f4f4;
+$ms-yellow: #fce444;
+$ms-blue: #4bb4e7;
+$ms-blue--dark: darken($ms-blue, 15%);
+$ms-red: #e3002b;
+$ms-purple: #3b5cad;
+$ms-red--dark: darken($ms-red, 15%);
+
+$confirm: #02c519;
+$error: $ms-red;
+
+.error {
+    color: $ms-red;
+    strong {
+        color: currentColor;
+        font-weight: 700;
+    }
+}
 
 //Typefaces
 $arial: 'Arial', sans-serif;

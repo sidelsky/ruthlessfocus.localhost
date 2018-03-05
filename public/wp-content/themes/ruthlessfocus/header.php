@@ -20,39 +20,3 @@
 		?>
 
 		<div class="page-wrap">
-
-			<header class="page-header">
-
-				<?php if (is_front_page()): ?>
-
-					<h1 class="page-header__logo">
-						<a href="<?php echo home_url(); ?>">
-							<?php bloginfo('name'); ?>
-						</a>
-					</h1>
-
-				<?php else: ?>
-
-					<div class="page-header__logo">
-						<a href="<?php echo home_url(); ?>">
-							<?php bloginfo('name'); ?>
-						</a>
-					</div>
-
-				<?php endif; ?>
-
-			</header>
-
-			<nav class="site-nav">
-
-				<?php
-					//Nav Menu
-					$args = array(
-						'container'       =>	'',
-						'echo'            =>	true,
-						'items_wrap'			=>	'<ul class="site-nav__menu">%3$s</ul>'
-					);
-					wp_nav_menu($args);
-				?>
-
-			</nav>
