@@ -1,0 +1,14 @@
+// scss-lint:disable QualifyingElement
+// scss-lint:disable PlaceholderInExtend
+.button {
+  border: 0;
+  display: inline-block;
+  font-size: 1.6rem;
+  text-decoration: none;
+  transition: all .25s;
+}
+
+input[type='submit'] {
+  @extend .button;
+  border-radius: 0;
+}

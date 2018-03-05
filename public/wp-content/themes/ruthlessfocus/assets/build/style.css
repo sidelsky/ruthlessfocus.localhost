@@ -1,0 +1,730 @@
+@charset "UTF-8";
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote::before, blockquote::after,
+q::before, q::after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* -----------------------------------------------------------------------------
+
+  HAMBURGER ICONS COMPONENT
+
+----------------------------------------------------------------------------- */
+/**
+ * Toggle Switch Globals
+ *
+ * All switches should take on the class `c-hamburger` as well as their
+ * variant that will give them unique properties. This class is an overview
+ * class that acts as a reset for all versions of the icon.
+ */
+.c-hamburger {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  width: 18px;
+  height: 18px;
+  font-size: 0;
+  text-indent: -9999px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  box-shadow: none;
+  border-radius: none;
+  border: 0;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.c-hamburger span {
+  background: white;
+  display: block;
+  position: absolute;
+  top: 8px;
+  left: 0;
+  right: 0;
+  height: 2px;
+}
+
+.c-hamburger:focus {
+  outline: none;
+}
+
+.c-hamburger span::before,
+.c-hamburger span::after {
+  position: absolute;
+  display: block;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  content: '';
+}
+
+.c-hamburger span::before {
+  top: -6px;
+}
+
+.c-hamburger span::after {
+  bottom: -6px;
+}
+
+/**
+ * Style 1
+ *
+ * Rotating hamburger icon (rot), that simply rotates 90 degrees when activated.
+ * Nothing too fancy, simple transition.
+ */
+.c-hamburger--rot {
+  background-color: #28aadc;
+}
+
+.c-hamburger--rot span {
+  transition: transform 0.3s;
+}
+
+/* active state, i.e. menu open */
+.c-hamburger--rot.is-active {
+  background-color: #166888;
+}
+
+.c-hamburger--rot.is-active span {
+  transform: rotate(90deg);
+}
+
+/**
+ * Style 2
+ *
+ * Hamburger to 'x' (htx). Takes on a hamburger shape, bars slide
+ * down to center and transform into an 'x'.
+ */
+.c-hamburger--htx {
+  background-color: #ff3264;
+}
+
+.c-hamburger--htx span {
+  transition: background 0s 0.3s;
+}
+
+.c-hamburger--htx span::before,
+.c-hamburger--htx span::after {
+  transition-duration: 0.3s, 0.3s;
+  transition-delay: 0.3s, 0s;
+}
+
+.c-hamburger--htx span::before {
+  transition-property: top, transform;
+}
+
+.c-hamburger--htx span::after {
+  transition-property: bottom, transform;
+}
+
+/* active state, i.e. menu open */
+.c-hamburger--htx.is-active {
+  background-color: #cb0032;
+}
+
+.c-hamburger--htx.is-active span {
+  background: none;
+}
+
+.c-hamburger--htx.is-active span::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.c-hamburger--htx.is-active span::after {
+  bottom: 0;
+  transform: rotate(-45deg);
+}
+
+.c-hamburger--htx.is-active span::before,
+.c-hamburger--htx.is-active span::after {
+  transition-delay: 0s, 0.3s;
+}
+
+/**
+ * Style 3
+ *
+ * Hamburger to left-arrow (htla). Hamburger menu transforms to a left-pointing
+ * arrow. Usually indicates an off canvas menu sliding in from left that
+ * will be close on re-click of the icon.
+ */
+.c-hamburger--htla {
+  background-color: #32dc64;
+}
+
+.c-hamburger--htla span {
+  transition: transform 0.3s;
+}
+
+.c-hamburger--htla span::before {
+  transform-origin: top right;
+  transition: transform 0.3s, width 0.3s, top 0.3s;
+}
+
+.c-hamburger--htla span::after {
+  transform-origin: bottom right;
+  transition: transform 0.3s, width 0.3s, bottom 0.3s;
+}
+
+/* active state, i.e. menu open */
+.c-hamburger--htla.is-active {
+  background-color: #19903c;
+}
+
+.c-hamburger--htla.is-active span {
+  transform: rotate(180deg);
+}
+
+.c-hamburger--htla.is-active span::before,
+.c-hamburger--htla.is-active span::after {
+  width: 50%;
+}
+
+.c-hamburger--htla.is-active span::before {
+  top: 0;
+  transform: translateX(11px) translateY(1px) rotate(45deg);
+}
+
+.c-hamburger--htla.is-active span::after {
+  bottom: 0;
+  transform: translateX(11px) translateY(-1px) rotate(-45deg);
+}
+
+/**
+ * Style 4
+ *
+ * Hamburger to right-arrow (htra). Hamburger menu transforms to a
+ * right-pointing arrow. Usually indicates an off canvas menu sliding in from
+ * right that will be close on re-click of the icon.
+ */
+.c-hamburger--htra {
+  background-color: #ff9650;
+}
+
+.c-hamburger--htra span {
+  transition: transform 0.3s;
+}
+
+.c-hamburger--htra span::before {
+  transform-origin: top left;
+  transition: transform 0.3s, width 0.3s, top 0.3s;
+}
+
+.c-hamburger--htra span::after {
+  transform-origin: bottom left;
+  transition: transform 0.3s, width 0.3s, bottom 0.3s;
+}
+
+/* active state, i.e. menu open */
+.c-hamburger--htra.is-active {
+  background-color: #e95d00;
+}
+
+.c-hamburger--htra.is-active span {
+  transform: rotate(180deg);
+}
+
+.c-hamburger--htra.is-active span::before,
+.c-hamburger--htra.is-active span::after {
+  width: 50%;
+}
+
+.c-hamburger--htra.is-active span::before {
+  top: 0;
+  transform: translateX(-2px) translateY(1px) rotate(-45deg);
+}
+
+.c-hamburger--htra.is-active span::after {
+  bottom: 0;
+  transform: translateX(-2px) translateY(-1px) rotate(45deg);
+}
+
+.button, input[type='submit'] {
+  border: 0;
+  display: inline-block;
+  font-size: 1.6rem;
+  text-decoration: none;
+  transition: all .25s;
+}
+
+input[type='submit'] {
+  border-radius: 0;
+}
+
+[type='text'],
+[type='password'],
+[type='date'],
+[type='datetime'],
+[type='datetime-local'],
+[type='month'],
+[type='week'],
+[type='email'],
+[type='number'],
+[type='search'],
+[type='tel'],
+[type='time'],
+[type='url'],
+[type='color'],
+textarea {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: 48px;
+  line-height: 36px;
+  padding: 6px;
+  margin: 0 0 1rem;
+  font-size: 16px;
+  background-color: #fff;
+  box-shadow: none;
+  border: 1px solid #999;
+  border-radius: 0;
+  transition: box-shadow .5s, border-color .25s ease-in-out;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  transition: all .35s;
+}
+
+[type='text']:focus,
+[type='password']:focus,
+[type='date']:focus,
+[type='datetime']:focus,
+[type='datetime-local']:focus,
+[type='month']:focus,
+[type='week']:focus,
+[type='email']:focus,
+[type='number']:focus,
+[type='search']:focus,
+[type='tel']:focus,
+[type='time']:focus,
+[type='url']:focus,
+[type='color']:focus,
+textarea:focus {
+  background-color: #999;
+  color: #fff;
+  outline: none;
+  box-shadow: none;
+}
+
+[type='number'],
+[type='date'] {
+  max-width: 175px;
+}
+
+textarea {
+  max-width: 100%;
+}
+
+textarea[rows] {
+  height: auto;
+}
+
+input:disabled,
+input[readonly],
+textarea:disabled,
+textarea[readonly] {
+  background-color: #e6e6e6;
+  cursor: default;
+}
+
+[type='submit'],
+[type='button'] {
+  border-radius: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+input[type='search'] {
+  box-sizing: border-box;
+}
+
+[type='file'],
+[type='checkbox'],
+[type='radio'] {
+  margin: 0 0 1rem;
+}
+
+[type='checkbox'] + label,
+[type='radio'] + label {
+  display: inline-block;
+  margin-left: .5rem;
+  margin-right: 1rem;
+  margin-bottom: 0;
+  vertical-align: baseline;
+}
+
+label > [type='checkbox'],
+label > [type='label'] {
+  margin-right: .5rem;
+}
+
+[type='file'] {
+  width: 100%;
+}
+
+.field-container {
+  margin-bottom: 2rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 1rem;
+  font-weight: normal;
+  line-height: 1.2;
+  color: #0a0a0a;
+  font-size: 16px;
+}
+
+fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+legend {
+  margin-bottom: .5rem;
+  max-width: 100%;
+}
+
+select {
+  height: 4.8rem;
+  padding: .6rem 1.2rem;
+  border: 1px solid #999;
+  margin: 0 0 1rem;
+  line-height: normal;
+  background-color: #fff;
+  -webkit-appearance: none;
+  border-radius: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="32" height="24" viewBox="0 0 32 24"><polygon points="0,0 32,0 16,24" style="fill: rgb%2851, 51, 51%29"></polygon></svg>');
+  background-size: 9px 6px;
+  background-position: right center;
+  background-origin: content-box;
+  background-repeat: no-repeat;
+  transition: background-color .25s;
+}
+
+select:focus {
+  box-shadow: none;
+  outline: 0;
+  -webkit-appearance: none;
+  background-color: #fff;
+}
+
+select:disabled {
+  background-color: #e6e6e6;
+  cursor: default;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+select[multiple] {
+  height: auto;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+table td,
+table th {
+  padding: 0;
+}
+
+table thead,
+table tbody,
+table tfoot {
+  background-color: #fefefe;
+  border: 1px solid #f1f1f1;
+}
+
+table caption {
+  font-weight: bold;
+  padding: 1.1rem;
+}
+
+table thead,
+table tfoot {
+  background: #fff;
+  color: #999;
+}
+
+table thead tr,
+table tfoot tr {
+  background: transparent;
+}
+
+table thead th,
+table thead td,
+table tfoot th,
+table tfoot td {
+  font-weight: bold;
+  padding: 1.1rem;
+  text-align: left;
+}
+
+table tbody tr:nth-child(even) {
+  background-color: #f1f1f1;
+}
+
+table tbody th,
+table tbody td {
+  padding: 1.1rem;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background: #fff;
+  color: #000;
+  font-size: 1rem;
+  font-smoothing: antialiased;
+  line-height: 1.33;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ol,
+ul,
+p {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: normal;
+  margin-bottom: 2rem;
+}
+
+h3,
+h4 {
+  text-transform: uppercase;
+}
+
+p,
+li {
+  font-size: 1.5rem;
+}
+
+@media (min-width: 64em) {
+  p,
+  li {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 80em) {
+  p,
+  li {
+    font-size: 1.5rem;
+  }
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+@media (min-width: 64em) {
+  h1 {
+    font-size: 4rem;
+  }
+}
+
+@media (min-width: 80em) {
+  h1 {
+    font-size: 6rem;
+  }
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+@media (min-width: 64em) {
+  h2 {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 80em) {
+  h2 {
+    font-size: 4rem;
+  }
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+@media (min-width: 64em) {
+  h3 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 80em) {
+  h3 {
+    font-size: 3rem;
+  }
+}
+
+h4 {
+  font-size: 2rem;
+}
+
+@media (min-width: 64em) {
+  h4 {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 80em) {
+  h4 {
+    font-size: 2rem;
+  }
+}
+
+blockquote {
+  font-size: 2rem;
+  margin: 0;
+}
+
+@media (min-width: 64em) {
+  blockquote {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 80em) {
+  blockquote {
+    font-size: 2rem;
+  }
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+* ::selection {
+  background: #999;
+  color: #fff;
+  text-shadow: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+ul,
+ol {
+  padding-left: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+ol,
+ul {
+  margin-bottom: 0;
+}
+
+hr {
+  border-color: #999;
+  margin: 4rem 0;
+}
+
+figure {
+  margin: 0;
+}
+
+blockquote .quote {
+  quotes: '“' '”' '‘' '’';
+}
+
+blockquote .quote::before {
+  content: open-quote;
+}
+
+blockquote .quote::after {
+  content: close-quote;
+}
+
+.logo {
+  max-width: 2.4rem;
+}
+
+a {
+  text-decoration: none;
+}

@@ -1,0 +1,30 @@
+{
+  "name": "wordpress-gulp-starter",
+  "version": "0.0.0",
+  "homepage": "http://squie.com",
+  "description": "Wordpress gulp starter",
+  "main": "",
+  "moduleType": [],
+  "authors": [
+    "Errol Sidelsky"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "compass-breakpoint": "breakpoint-sass#~2.6.1",
+    "waypoints": "~4.0.0",
+    "animatewithsass": "~3.2.2",
+    "segment": "https://github.com/lmgonzalves/segment.git",
+    "jquery": "^2.2.0",
+    "skrollr": "^0.6.30",
+    "ease": "^1.1.0",
+    "d3-ease": "^0.7.0",
+    "echojs": "^1.7.3"
+  }
+}
