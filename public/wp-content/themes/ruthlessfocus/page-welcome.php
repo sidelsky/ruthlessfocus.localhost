@@ -32,7 +32,7 @@
     <section class="c-welcome__map-container">
 
         <div class="c-welcome__content-container">
-            <div class="c-welcome__map map">
+            <div class="c-welcome__map">
                 <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/build/img/map.png" alt="">
                 
             <?php 
@@ -84,12 +84,17 @@
 
             </div>
 
-            <svg class="mediacom-logo">
+                <div class="mediacom-logo-container">
+        <svg class="mediacom-logo">
                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#shape-mediacom" viewBox="0 0 32 32"></use>
-            </svg>
+        </svg>
+    </div>
 
         </div>
+        
 
     </section>
+
+
 
 <?php include("footer.php"); ?>

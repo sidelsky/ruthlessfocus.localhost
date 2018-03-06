@@ -55,7 +55,7 @@ $welcomeHeight: 100vh;
 
 
     &__map-container {
-        $welcomeHeight: 768px;
+        $welcomeHeight: 100vh;
         height: $welcomeHeight;
         background-image: url('img/background-map.jpg');
         background-position: center center;
@@ -73,6 +73,9 @@ $welcomeHeight: 100vh;
 
 .c-welcome__map {
     position: relative;
+    position: relative;
+	top: 50%;
+    transform: translateY(-50%);
     
     img {
         display: block;
@@ -110,13 +113,22 @@ $welcomeHeight: 100vh;
     }
 }
 
+.mediacom-logo-container {
+    //background-color: red;
+    text-align: center;
+    padding: $spacing--large 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
 .mediacom-logo {
     width: 180px;
     height: 30px;
 
     @include breakpoint($medium) {
-        @include vertical-align(absolute, 50%);
-        bottom: $spacing--large;
+        bottom: 0px;
+        position: relative;
     }
 
 }
