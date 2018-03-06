@@ -1,0 +1,58 @@
+.map-popup {
+    position: relative;
+    left: 50%;
+    top: 50%;
+    z-index: 99;
+    //width: 60%;
+    width: 225px;
+    padding: $spacing--x-small;
+    background-color: rgba($black, .8);
+    transition: all 300ms ease-in;
+    transform: translate(-50%,-50%);
+    opacity: 0;
+    visibility: hidden;
+    border-radius: 15px;
+    text-align: left;
+
+    @include breakpoint($medium) {
+        position: absolute;
+        left: -225px;
+        width: 225px;
+        transform: translateY(-50%);
+    
+    }
+
+    &.open {
+        opacity: 1;
+        visibility: visible;
+      }
+
+  }
+
+  
+
+  .popup-title {
+    color: $pink;
+    text-transform: uppercase;
+    font-family: $font-primary--bold;
+    @include set-font-size(1.6rem, 1.6rem, 1.6rem);
+    line-height: 1.2;
+    margin-bottom: $spacing--x-tiny;
+  }
+
+  .location-title {
+    color: $white;
+    @include set-font-size(1.6rem, 1.6rem, 1.6rem);
+    line-height: 1.2;
+    margin-bottom: $spacing--x-tiny;
+
+  }
+
+  .location-date {
+    color: $white;
+    @include set-font-size(1.2rem, 1.2rem, 1.2rem);
+    line-height: 1;
+    margin-bottom: 0;
+  }
+
+

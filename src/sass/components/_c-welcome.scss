@@ -1,4 +1,4 @@
-$welcomeHeight: 90vh;
+$welcomeHeight: 100vh;
 
 .c-welcome {
 
@@ -7,6 +7,7 @@ $welcomeHeight: 90vh;
     background-size: cover;
     background-repeat: no-repeat;
     padding: 0 $spacing--large;
+
     @include breakpoint($medium) {
         height: $welcomeHeight;
     }
@@ -15,13 +16,17 @@ $welcomeHeight: 90vh;
         background-color: $black;
         max-width: 1024px;
         margin: 0 auto;
-        padding: $spacing--large $spacing--jumbo;
         text-align: center;
-        outline: solid 1px red;
         position: relative;
 
-        @include breakpoint($medium) {
-            height: $welcomeHeight;
+        // with height
+        &--height {
+            padding: $spacing--small $spacing--medium;
+
+            @include breakpoint($medium) {
+                padding: $spacing--large $spacing--jumbo;
+                height: $welcomeHeight;
+            }
         }
     }
 
@@ -50,7 +55,7 @@ $welcomeHeight: 90vh;
 
 
     &__map-container {
-        $welcomeHeight: 100vh;
+        $welcomeHeight: 768px;
         height: $welcomeHeight;
         background-image: url('img/background-map.jpg');
         background-position: center center;
@@ -67,15 +72,14 @@ $welcomeHeight: 90vh;
 }
 
 .c-welcome__map {
-    background-image: url('img/map.png');
-    background-position: center center;
-    background-repeat: no-repeat;
-    position: absolute;
-    background-size: contain;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    position: relative;
+    
+    img {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+    }
 }
 
 
@@ -104,4 +108,15 @@ $welcomeHeight: 90vh;
             transform: translateY(5px);
         }
     }
+}
+
+.mediacom-logo {
+    width: 180px;
+    height: 30px;
+
+    @include breakpoint($medium) {
+        @include vertical-align(absolute, 50%);
+        bottom: $spacing--large;
+    }
+
 }

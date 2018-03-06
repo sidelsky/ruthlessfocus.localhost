@@ -11,4 +11,7 @@ var $ = require("jquery");
 // Login form
 require("./login-form");
 
+// Map popup
+require("./map-popup");
+
 //TO GET THEME PATH use site_data.themePath
