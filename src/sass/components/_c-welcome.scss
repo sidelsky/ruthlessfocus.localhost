@@ -1,0 +1,107 @@
+$welcomeHeight: 90vh;
+
+.c-welcome {
+
+    background-image: url('img/background-welcome.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 0 $spacing--large;
+    @include breakpoint($medium) {
+        height: $welcomeHeight;
+    }
+
+    &__content-container {
+        background-color: $black;
+        max-width: 1024px;
+        margin: 0 auto;
+        padding: $spacing--large $spacing--jumbo;
+        text-align: center;
+        outline: solid 1px red;
+        position: relative;
+
+        @include breakpoint($medium) {
+            height: $welcomeHeight;
+        }
+    }
+
+    &__logo {
+        margin-bottom: 4rem;
+
+        svg {
+            width: 165px;
+            height: auto;
+        }
+    }
+
+    &__title {
+        color: $pink;
+        font-family: $font-primary--bold;
+        @include set-font-size(4rem, 5rem, 6rem);
+        line-height: 1;
+        margin-bottom: $spacing--large;
+    }
+
+    &__sub-title {
+        color: $white;
+        @include set-font-size(2rem, 3rem, 4rem);
+        line-height: 1.2;
+    }
+
+
+    &__map-container {
+        $welcomeHeight: 100vh;
+        height: $welcomeHeight;
+        background-image: url('img/background-map.jpg');
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        padding: 0 $spacing--large;
+
+        .c-welcome__content-container {
+            height: $welcomeHeight;
+        }
+       
+    }
+
+}
+
+.c-welcome__map {
+    background-image: url('img/map.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: absolute;
+    background-size: contain;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+
+.down-arrow {
+    display: block;
+    $dimensions: 45px;
+    width: $dimensions;
+    height: $dimensions;
+    margin: 0 auto;
+
+    @include breakpoint($medium) {
+        @include vertical-align(absolute, 50%);
+        bottom: $dimensions;
+    }
+
+    svg {
+        $dimensions: 100%;
+        width: $dimensions;
+        height: $dimensions;
+        transform: translateY(0px);
+        transition: all .3s ease;
+    }
+
+    &:hover {
+        svg {
+            transform: translateY(5px);
+        }
+    }
+}

@@ -548,14 +548,14 @@ li {
   font-size: 1.5rem;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   p,
   li {
     font-size: 1.5rem;
   }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1024px) {
   p,
   li {
     font-size: 1.5rem;
@@ -566,13 +566,13 @@ h1 {
   font-size: 3rem;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   h1 {
     font-size: 4rem;
   }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1024px) {
   h1 {
     font-size: 6rem;
   }
@@ -582,13 +582,13 @@ h2 {
   font-size: 2rem;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   h2 {
     font-size: 3rem;
   }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1024px) {
   h2 {
     font-size: 4rem;
   }
@@ -598,13 +598,13 @@ h3 {
   font-size: 2rem;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   h3 {
     font-size: 2.5rem;
   }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1024px) {
   h3 {
     font-size: 3rem;
   }
@@ -614,13 +614,13 @@ h4 {
   font-size: 2rem;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   h4 {
     font-size: 2rem;
   }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1024px) {
   h4 {
     font-size: 2rem;
   }
@@ -631,13 +631,13 @@ blockquote {
   margin: 0;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   blockquote {
     font-size: 2rem;
   }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1024px) {
   blockquote {
     font-size: 2rem;
   }
@@ -659,6 +659,7 @@ body {
   color: #000;
   font-size: 1rem;
   font-smoothing: antialiased;
+  font-family: "muli-regular", Helvetica, Arial, sans-serif;
   line-height: 1.33;
   text-rendering: optimizeLegibility;
 }
@@ -769,6 +770,24 @@ a {
   .container--fill {
     padding: 0 10px;
   }
+}
+
+/*------------------------------------*    FONT FAMILIES
+\*------------------------------------*/
+@font-face {
+  font-family: "muli-regular";
+  font-style: normal;
+  font-weight: normal;
+  src: url("fonts/muli/muli-regular.eot");
+  src: url("fonts/muli/muli-regular.eot?#iefix") format("embedded-opentype"), url("fonts/muli/muli-regular.woff") format("woff"), url("fonts/muli/muli-regular.ttf") format("truetype"), url("fonts/muli/muli-regular.svgmuli-regular") format("svg");
+}
+
+@font-face {
+  font-family: "muli-bold";
+  font-style: normal;
+  font-weight: normal;
+  src: url("fonts/muli/muli-bold.eot");
+  src: url("fonts/muli/muli-bold.eot?#iefix") format("embedded-opentype"), url("fonts/muli/muli-bold.woff") format("woff"), url("fonts/muli/muli-bold.ttf") format("truetype"), url("fonts/muli/muli-bold.svgmuli-bold") format("svg");
 }
 
 .u-img-cover {
@@ -1151,7 +1170,7 @@ a {
 
 .login-canvas__logo {
   position: relative;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
   position: relative;
 }
 
@@ -1183,84 +1202,148 @@ a {
   width: 100%;
 }
 
-.tml-user-pass-wrap .input {
+.input {
   border-radius: 10px;
   line-height: 46px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: solid 2px rgba(255, 255, 255, 0.6);
+  color: #fff;
+  font-size: 1.4rem;
+}
+
+.input::-webkit-input-placeholder {
+  /* WebKit browsers */
+  color: #fff;
+  font-size: 1.4rem;
+  opacity: 1;
+  text-indent: 0%;
+  transition: text-indent .7s ease;
+}
+
+.input:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #fff;
+  font-size: 1.4rem;
+  opacity: 1;
+  text-indent: 0%;
+  transition: text-indent .7s ease;
+}
+
+.input::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #fff;
+  font-size: 1.4rem;
+  opacity: 1;
+  text-indent: 0%;
+  transition: text-indent .7s ease;
+}
+
+.input:-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  color: #fff;
+  font-size: 1.4rem;
+  opacity: 1;
+  text-indent: 0%;
+  transition: text-indent .7s ease;
+}
+
+.input:placeholder-shown {
+  color: #fff;
+  font-size: 1.4rem;
+  opacity: 1;
+  text-indent: 0%;
+  transition: text-indent .7s ease;
+}
+
+.input:focus::-webkit-input-placeholder {
+  /* WebKit browsers */
+  text-indent: -100%;
+  transition: text-indent .7s ease;
+}
+
+.input:focus:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  text-indent: -100%;
+  transition: text-indent .7s ease;
+}
+
+.input:focus::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  text-indent: -100%;
+  transition: text-indent .7s ease;
+}
+
+.input:focus:-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  text-indent: -100%;
+  transition: text-indent .7s ease;
+}
+
+.input:focus:placeholder-shown {
+  text-indent: -100%;
+  transition: text-indent .7s ease;
+}
+
+.input:focus {
+  border: solid 2px #fff;
+}
+
+.tml-rememberme-wrap {
+  margin-bottom: 3rem;
+  padding-left: .9rem;
+}
+
+.tml-rememberme-wrap label {
+  color: #fff;
+  font-size: 1.4rem;
+}
+
+@media (min-width: 768px) {
+  .tml-rememberme-wrap label {
+    font-size: 1.4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .tml-rememberme-wrap label {
+    font-size: 1.4rem;
+  }
+}
+
+.tml-submit-wrap {
+  text-align: center;
+}
+
+.tml-submit-wrap .submit {
   background-color: transparent;
-  border: solid 3px #fff;
+  height: 48px;
+  width: 48px;
+  border: none;
+  background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2222%22%20height%3D%2219%22%20viewBox%3D%220%200%2022%2019%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%3Cpath%20d%3D%22M22%209.5001c0-.231-.162-.539-.326-.688l-9.264-8.5c-.431-.386-1.133-.431-1.637-.039-.451.35-.461%201.034-.044%201.414l7.435%206.813H1.158c-.639%200-1.158.447-1.158%201%200%20.552.519%201%201.158%201h17.006l-7.435%206.812c-.417.381-.388%201.047.044%201.415.456.387%201.211.353%201.637-.039l9.264-8.501c.271-.23.321-.452.326-.687%22%20fill%3D%22%23FFF%22%20fill-rule%3D%22evenodd%22%2F%3E%0A%3C%2Fsvg%3E%0A");
+  background-repeat: no-repeat;
+  background-position: center center;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: solid 2px #fff;
+  margin: 0 auto;
+  transition: ease .2s opacity 1s;
+  transition: ease-in-out .2s background-position;
 }
 
-.tml-user-pass-wrap .input::-webkit-input-placeholder {
-  /* WebKit browsers */
-  color: #fff;
-  font-size: 16px;
-  opacity: 1;
-  text-indent: 0%;
-  transition: text-indent .7s ease;
+.tml-submit-wrap .submit:hover {
+  transition: ease-in-out .2s background-position;
+  background-position: 15px center;
+  cursor: pointer;
 }
 
-.tml-user-pass-wrap .input:-moz-placeholder {
-  /* Mozilla Firefox 4 to 18 */
-  color: #fff;
-  font-size: 16px;
-  opacity: 1;
-  text-indent: 0%;
-  transition: text-indent .7s ease;
+.tml-submit-wrap .submit:disabled {
+  background-position: center center;
+  opacity: 0;
 }
 
-.tml-user-pass-wrap .input::-moz-placeholder {
-  /* Mozilla Firefox 19+ */
-  color: #fff;
-  font-size: 16px;
-  opacity: 1;
-  text-indent: 0%;
-  transition: text-indent .7s ease;
-}
-
-.tml-user-pass-wrap .input:-ms-input-placeholder {
-  /* Internet Explorer 10+ */
-  color: #fff;
-  font-size: 16px;
-  opacity: 1;
-  text-indent: 0%;
-  transition: text-indent .7s ease;
-}
-
-.tml-user-pass-wrap .input:placeholder-shown {
-  color: #fff;
-  font-size: 16px;
-  opacity: 1;
-  text-indent: 0%;
-  transition: text-indent .7s ease;
-}
-
-.tml-user-pass-wrap .input:focus::-webkit-input-placeholder {
-  /* WebKit browsers */
-  text-indent: -100%;
-  transition: text-indent .7s ease;
-}
-
-.tml-user-pass-wrap .input:focus:-moz-placeholder {
-  /* Mozilla Firefox 4 to 18 */
-  text-indent: -100%;
-  transition: text-indent .7s ease;
-}
-
-.tml-user-pass-wrap .input:focus::-moz-placeholder {
-  /* Mozilla Firefox 19+ */
-  text-indent: -100%;
-  transition: text-indent .7s ease;
-}
-
-.tml-user-pass-wrap .input:focus:-ms-input-placeholder {
-  /* Internet Explorer 10+ */
-  text-indent: -100%;
-  transition: text-indent .7s ease;
-}
-
-.tml-user-pass-wrap .input:focus:placeholder-shown {
-  text-indent: -100%;
-  transition: text-indent .7s ease;
+.tml-submit-wrap .submit:disabled:hover {
+  background-position: 15px center;
+  cursor: default;
 }
 
 .c-notification {
@@ -1283,10 +1366,8 @@ body img.gform_ajax_spinner {
 .gforms_confirmation_message {
   color: #02c519;
   position: relative;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+  left: 50%;
+  transform: translateX(-50%);
   width: 460px;
 }
 
@@ -1359,4 +1440,133 @@ body img.gform_ajax_spinner {
 .m-logo__image {
   height: auto;
   width: 100%;
+}
+
+.c-welcome {
+  background-image: url("img/background-welcome.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 0 4rem;
+}
+
+@media (min-width: 768px) {
+  .c-welcome {
+    height: 90vh;
+  }
+}
+
+.c-welcome__content-container {
+  background-color: #000;
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 4rem 10rem;
+  text-align: center;
+  outline: solid 1px red;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .c-welcome__content-container {
+    height: 90vh;
+  }
+}
+
+.c-welcome__logo {
+  margin-bottom: 4rem;
+}
+
+.c-welcome__logo svg {
+  width: 165px;
+  height: auto;
+}
+
+.c-welcome__title {
+  color: #E1005D;
+  font-family: "muli-bold", Helvetica, Arial, sans-serif;
+  font-size: 4rem;
+  line-height: 1;
+  margin-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+  .c-welcome__title {
+    font-size: 5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .c-welcome__title {
+    font-size: 6rem;
+  }
+}
+
+.c-welcome__sub-title {
+  color: #fff;
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+  .c-welcome__sub-title {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .c-welcome__sub-title {
+    font-size: 4rem;
+  }
+}
+
+.c-welcome__map-container {
+  height: 100vh;
+  background-image: url("img/background-map.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 0 4rem;
+}
+
+.c-welcome__map-container .c-welcome__content-container {
+  height: 100vh;
+}
+
+.c-welcome__map {
+  background-image: url("img/map.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  position: absolute;
+  background-size: contain;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.down-arrow {
+  display: block;
+  width: 45px;
+  height: 45px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .down-arrow {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 45px;
+  }
+}
+
+.down-arrow svg {
+  width: 100%;
+  height: 100%;
+  transform: translateY(0px);
+  transition: all .3s ease;
+}
+
+.down-arrow:hover svg {
+  transform: translateY(5px);
 }

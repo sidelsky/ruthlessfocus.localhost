@@ -30,6 +30,7 @@
 @import 'base/table';
 @import 'base/typography';
 @import 'base/general';
+@import 'base/fonts';
 
 //Utilities
 @import 'utilities/u-img-cover';
@@ -46,6 +47,7 @@
 @import 'components/c-notification';
 @import 'components/c-buttons';
 @import 'components/c-m-logo';
+@import 'components/c-welcome';
 
 // Partials
 @import 'partials/app';

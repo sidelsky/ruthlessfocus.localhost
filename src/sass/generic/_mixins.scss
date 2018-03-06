@@ -1,34 +1,40 @@
 // scss-lint:disable Indentation
 //Responsive Font Sizes
 @mixin set-font-size($small-font: '1.5rem', $medium-font: '1.8rem', $large-font: '2.5rem') {
+
 	font-size: #{$small-font};
 
-	@include breakpoint($large) {
+	@include breakpoint($medium) {
 		font-size: #{$medium-font};
 	}
 
-	@include breakpoint($x-large) {
+	@include breakpoint($large) {
 		font-size: #{$large-font};
 	}
 }
 
-// Mixin for webfont
-@mixin web-font($font-name: 'FONT NAME', $file-path: '/PATHTOFONT/', $file-name: 'FONTNAME') {
-	$full-path: $file-path + $file-name;
-
-	@font-face {
-		font-family: '#{$font-name}';
-		src: url('#{$full-path}.eot');
-		src: url('#{$full-path}.eot?#iefix') format('embedded-opentype'),
-		url('#{$full-path}.woff2') format('woff2'),
-		url('#{$full-path}.woff') format('woff'),
-		url('#{$full-path}.ttf') format('truetype'),
-		url('#{$full-path}.svg##{$file-name}') format('svg');
-		font-weight: normal;
-		font-style: normal;
-	}
+@mixin web-font(
+  $font-name: 'FONT NAME',
+  $file-path: '/PATHTOFONT/',
+  $file-name: 'FONTNAME'
+  ){
+  $full-path: $file-path + $file-name;
+  @font-face {
+    font-family: '#{$font-name}';
+    font-style: normal;
+    font-weight: normal;
+    // IE9 Compat Modes
+    src: url('#{$full-path}.eot');
+    // IE6-IE8
+    src: url('#{$full-path}.eot?#iefix') format('embedded-opentype'),
+        // Modern Browsers
+        url('#{$full-path}.woff') format('woff'),
+        // Safari, Android, iOS
+        url('#{$full-path}.ttf') format('truetype'),
+        // Legacy iOS
+        url('#{$full-path}.svg#{$file-name}') format('svg');
+    }
 }
-
 //Keep the aspect ratio fixed for certain elements. i.e. Video
 @mixin aspect-ratio($width, $height) {
 	position: relative;
@@ -72,13 +78,13 @@
   top: 0; left: 0; bottom: 0; right: 0;
 }
 
-@mixin vertical-align($position: relative) {
-  position: $position;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
+
+
+@mixin vertical-align($position: relative, $left: 50%) {
+	position: $position;
+	left: $left;
+	transform: translateX(-$left);
+  }
 
 //Placeholder
 @mixin placeholder($color: $white, $size: 16px) {
@@ -87,7 +93,7 @@
 	&:-ms-input-placeholder,
 	&:-moz-placeholder  { /* Chrome/Opera/Safari */
 		text-indent: 0%;
-		transition: text-indent .2s ease;
+		//transition: all .2s ease 1s;
 		color: $color;
 		font-size: $size;
 	}
@@ -97,13 +103,13 @@
 	&:focus:-ms-input-placeholder,
 	&:focus:-moz-placeholder { 
 		text-indent: -100%;
-		transition: text-indent .2s ease;
+		// transition: all .2s ease;
 	}
 
 }
 
 
-@mixin placeholder($color: $white, $size: 16px) {
+@mixin placeholder($color: $white, $size: 1.4rem) {
 	&::-webkit-input-placeholder { /* WebKit browsers */
 		color: $color;
 		font-size: $size;

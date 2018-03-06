@@ -16,6 +16,7 @@ $ms-blue--dark: darken($ms-blue, 15%);
 $ms-red: #e3002b;
 $ms-purple: #3b5cad;
 $ms-red--dark: darken($ms-red, 15%);
+$pink: #E1005D;
 
 $confirm: #02c519;
 $error: $ms-red;
@@ -29,10 +30,16 @@ $error: $ms-red;
 }
 
 //Typefaces
-$arial: 'Arial', sans-serif;
+//$arial: 'Arial', sans-serif;
 
 //Global
-$primary-font: $arial;
+//$primary-font: $arial;
+
+//Font faces
+$font-name: 'muli';
+$font-primary: '#{$font-name}-regular', Helvetica, Arial, sans-serif;
+$font-primary--bold: '#{$font-name}-bold', Helvetica, Arial, sans-serif;
+
 $primary-font-color: $grey;
 $primary-font-size: 16px;
 $primary-font-weight: normal;
@@ -50,6 +57,18 @@ $xx-large: 1600px;
 
 //Spacing
 $margin-default: 4rem;
+
+$spacing--x-tiny: .5rem;
+$spacing--tiny: 1rem;
+$spacing--x-small: 1.5rem;
+$spacing--small: 2rem;
+$spacing--x-medium: 2.5rem;
+$spacing--medium: 3rem;
+$spacing--x-large: 3.5rem;
+$spacing--large: 4rem;
+$spacing--large-x: 5rem;
+$spacing--large-xx: 6rem;
+$spacing--jumbo: 10rem;
 
 //Hamburger menu
 $button-width: 18px;                    // The width of the button area
