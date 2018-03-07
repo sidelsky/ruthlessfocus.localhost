@@ -23,7 +23,7 @@ Theme My Login will always look in your theme's directory first, before using th
 			<?php /*
 			<input type="text" name="log" id="user_login<?php $template->the_instance(); ?>" class="input" value="<?php $template->the_posted_value( 'log' ); ?>" size="20" />
 			*/ ?>
-			<input type="text" name="log" id="user_login<?php $template->the_instance(); ?>" class="input" value="mediacom_user" size="20" />
+			<input type="text" name="log" id="user_login<?php $template->the_instance(); ?>" class="input" value="adidasgroup" size="20" />
 		</p>
 
 		<p class="tml-user-pass-wrap">

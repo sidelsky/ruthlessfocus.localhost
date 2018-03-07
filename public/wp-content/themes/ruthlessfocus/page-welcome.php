@@ -2,11 +2,15 @@
 /**
  * Template name: Welcome template
  */
+
+$title = get_field( 'title' );
+$subtitle = get_field( 'subtitle' );
+
 ?>
 
 <?php include("header.php"); ?>
 	
-	<section class="c-welcome">
+	<section class="c-welcome" id="welcome">
 		
         <div class="c-welcome__content-container c-welcome__content-container--height">
             
@@ -16,8 +20,10 @@
                 </svg>
             </div>
 
-            <h1 class="c-welcome__title">Welcome to our online portal and interactive presentation map</h1>
-            <h2 class="c-welcome__sub-title">Once presentations have been delivered, collateral including presentation files, information on teams and videos will be made available to download</h2>
+            <?php
+                echo '<h1 class="c-welcome__title">'. $title .'</h1>';
+                echo '<h2 class="c-welcome__sub-title">'. $subtitle .'</h2>';
+            ?>
 
             <a href="" class="down-arrow">
                 <svg>
@@ -29,7 +35,7 @@
 		
     </section>
     
-    <section class="c-welcome__map-container">
+    <section class="c-welcome__map-container" id="map">
 
         <div class="c-welcome__content-container">
             <div class="c-welcome__map">
@@ -47,8 +53,8 @@
                 );
                 $loop = new WP_Query( $args );
                 
-                $map_item_count = 1;
-                $marker_count = 1;
+                $map_item_count = 0;
+                $marker_count = 0;
 
                 while ( $loop->have_posts() ) : $loop->the_post();
 
@@ -59,24 +65,75 @@
                     $x_position = get_field( 'x_position' );
                     $active = get_field( 'active' );
 
+                    // addidas files
+                    $adidas_team = get_field( 'adidas_team' );
+                    $adidas_pitch = get_field( 'adidas_pitch' );
+                    $adidas_video = get_field( 'adidas_video' );
+
+                    // reebok
+                    $reebok_team = get_field( 'reebok_team' );
+                    $reebok_pitch = get_field( 'reebok_pitch' );
+                    $reebok_video = get_field( 'reebok_video' );
+
+                    $team = 'Team';
+                    $pitch = 'Pitch';
+                    $video = 'Video';
+
 
                     //$active_marker = $active === ( TRUE ) ? 'marker--active' : '';
                     if ( $active == true ) { 
                         $active_marker = 'marker--active';
+                        $icon = 'marker';
                        } else {
                         $active_marker = '';
+                        $icon = 'close';
                        }
 
                     echo '<div class="map-item map-item'. $map_item_count++ .' '. $active_marker .'" style="top: '. $y_position .'%; left: '. $x_position .'%">';
                         $marker = $marker_count++;
                         echo '<a class="marker"  href="#marker' . $marker . '">';
-                            echo ' <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#shape-marker" viewBox="0 0 32 32"></use></svg>';
+                            echo ' <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#shape-'. $icon .'" viewBox="0 0 32 32"></use></svg>';
                             echo '<span class="u-sr-only">' . $main_title . '</span>';
                         echo '</a>';
                         echo '<aside id="' . $marker . '" class="map-popup">';
                             echo '<h3 class="popup-title">'. $main_title .'</h3>';
                             echo '<h4 class="location-title">'. $location_title .'</h4>';
                             echo '<span class="location-date">'. $date_time .'</span>';
+                            if ( $adidas_team || $adidas_pitch || $adidas_video ) {
+                                echo '<div class="files">';
+                                if ( $reebok_team || $reebok_pitch || $reebok_video ) {
+                                    echo '<div class="files__title"><span>adidas</span></div>';
+                                }
+                                    echo '<div class="files__wrapper">';
+                                        if ( $adidas_team ) {
+                                            echo '<a class="files__link" href="'. $adidas_team['url'] .'" target="_blank"><span>'. $team .'</span></a>';
+                                        }
+                                        if ( $adidas_pitch ) {
+                                            echo '<a class="files__link" href="'. $adidas_pitch['url'] .'" target="_blank"><span>'. $pitch .'</span></a>';
+                                        }
+                                        if ( $adidas_video ) {
+                                            echo '<a class="files__link" href="'. $adidas_video['url'] .'" target="_blank"><span>'. $video .'</span></a>';
+                                        }
+                                    echo '</div>';
+                                echo '</div>';
+                            }
+                            
+                            if ( $reebok_team || $reebok_pitch || $reebok_video ) {
+                                echo '<div class="files">';
+                                    echo '<div class="files__title"><span>Reebok</span></div>';
+                                        echo '<div class="files__wrapper">';
+                                            if ( $reebok_team ) {
+                                                echo '<a class="files__link" href="'. $reebok_team['url'] .'" target="_blank"><span>'. $team .'</span></a>';
+                                            }
+                                            if ( $reebok_pitch ) {
+                                                echo '<a class="files__link" href="'. $reebok_pitch['url'] .'" target="_blank"><span>'. $pitch .'</span></a>';
+                                            }
+                                            if ( $reebok_video ) {
+                                                echo '<a class="files__link" href="'. $reebok_video['url'] .'" target="_blank"><span>'. $video .'</span></a>';
+                                            }
+                                        echo '</div>';
+                                echo '</div>';
+                            }
                         echo '</aside>';
                     echo '</div>';
                 endwhile; 
@@ -84,11 +141,11 @@
 
             </div>
 
-                <div class="mediacom-logo-container">
-        <svg class="mediacom-logo">
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#shape-mediacom" viewBox="0 0 32 32"></use>
-        </svg>
-    </div>
+            <div class="mediacom-logo-container">
+                <svg class="mediacom-logo">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#shape-mediacom" viewBox="0 0 32 32"></use>
+                </svg>
+            </div>
 
         </div>
         

@@ -337,7 +337,7 @@ textarea {
   font-size: 16px;
   background-color: #fff;
   box-shadow: none;
-  border: 1px solid #999;
+  border: 1px solid #ccc;
   border-radius: 0;
   transition: box-shadow .5s, border-color .25s ease-in-out;
   -webkit-appearance: none;
@@ -447,7 +447,7 @@ legend {
 select {
   height: 4.8rem;
   padding: .6rem 1.2rem;
-  border: 1px solid #999;
+  border: 1px solid #ccc;
   margin: 0 0 1rem;
   line-height: normal;
   background-color: #fff;
@@ -509,7 +509,7 @@ table caption {
 table thead,
 table tfoot {
   background: #fff;
-  color: #999;
+  color: #ccc;
 }
 
 table thead tr,
@@ -671,7 +671,7 @@ body {
 }
 
 * ::selection {
-  background: #999;
+  background: #ccc;
   color: #fff;
   text-shadow: none;
 }
@@ -694,7 +694,7 @@ ol {
 }
 
 hr {
-  border-color: #999;
+  border-color: #ccc;
   margin: 4rem 0;
 }
 
@@ -1500,20 +1500,20 @@ body img.gform_ajax_spinner {
 .c-welcome__title {
   color: #E1005D;
   font-family: "muli-bold", Helvetica, Arial, sans-serif;
-  font-size: 4rem;
+  font-size: 3.8rem;
   line-height: 1;
   margin-bottom: 4rem;
 }
 
 @media (min-width: 768px) {
   .c-welcome__title {
-    font-size: 5rem;
+    font-size: 4rem;
   }
 }
 
 @media (min-width: 1024px) {
   .c-welcome__title {
-    font-size: 6rem;
+    font-size: 4.8rem;
   }
 }
 
@@ -1531,7 +1531,7 @@ body img.gform_ajax_spinner {
 
 @media (min-width: 1024px) {
   .c-welcome__sub-title {
-    font-size: 4rem;
+    font-size: 3.8rem;
   }
 }
 
@@ -1549,7 +1549,6 @@ body img.gform_ajax_spinner {
 }
 
 .c-welcome__map {
-  position: relative;
   position: relative;
   top: 50%;
   transform: translateY(-50%);
@@ -1627,8 +1626,6 @@ body img.gform_ajax_spinner {
   border-radius: 50%;
   background-color: #fff;
   transition: all 300ms;
-  pointer-events: none;
-  cursor: default;
 }
 
 .marker svg {
@@ -1638,8 +1635,8 @@ body img.gform_ajax_spinner {
   left: 0;
   bottom: 0;
   right: 0;
-  width: 11px;
-  height: 11px;
+  width: 7px;
+  height: 7px;
   fill: #E1005D;
 }
 
@@ -1648,10 +1645,13 @@ body img.gform_ajax_spinner {
   cursor: pointer;
   background-color: #E1005D;
   transition: all .2s ease;
+  z-index: 2;
 }
 
 .marker--active .marker svg {
   fill: #fff;
+  width: 11px;
+  height: 11px;
 }
 
 .marker--active .marker:hover {
@@ -1680,29 +1680,44 @@ body img.gform_ajax_spinner {
   left: 50%;
   top: 50%;
   z-index: 99;
-  width: 225px;
+  width: 205px;
   padding: 1.5rem;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.9);
   transition: all 300ms ease-in;
   transform: translate(-50%, -50%);
   opacity: 0;
   visibility: hidden;
-  border-radius: 15px;
+  border-radius: 10px;
   text-align: left;
+  color: #ccc;
 }
 
 @media (min-width: 768px) {
   .map-popup {
     position: absolute;
-    left: -225px;
-    width: 225px;
+    left: -205px;
+    width: 205px;
     transform: translateY(-50%);
   }
 }
 
-.map-popup.open {
+.map-popup .location-date::before {
+  content: 'Scheduled: ';
+  font-weight: 700;
+}
+
+.open .map-popup {
   opacity: 1;
   visibility: visible;
+}
+
+.marker--active .map-popup {
+  color: #404040;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.marker--active .map-popup .location-date::before {
+  display: none;
 }
 
 .popup-title {
@@ -1727,7 +1742,6 @@ body img.gform_ajax_spinner {
 }
 
 .location-title {
-  color: #fff;
   font-size: 1.6rem;
   line-height: 1.2;
   margin-bottom: 0.5rem;
@@ -1746,20 +1760,94 @@ body img.gform_ajax_spinner {
 }
 
 .location-date {
-  color: #fff;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   line-height: 1;
-  margin-bottom: 0;
+  margin-bottom: 1.5rem;
+  display: inline-block;
 }
 
 @media (min-width: 768px) {
   .location-date {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 }
 
 @media (min-width: 1024px) {
   .location-date {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
+}
+
+.files {
+  margin-bottom: 1.5rem;
+}
+
+.files__title {
+  color: currentColor;
+  font-size: 1.3rem;
+  line-height: 1;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .files__title {
+    font-size: 1.3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .files__title {
+    font-size: 1.3rem;
+  }
+}
+
+.files__title span {
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+.files__title::after {
+  content: "";
+  display: inline-block;
+  background-color: currentColor;
+  opacity: .6;
+  height: 1px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-300%);
+  width: 70%;
+}
+
+.files__wrapper {
+  display: flex;
+}
+
+.files__link {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: transparent;
+  display: block;
+  border: solid 1px #E1005D;
+  position: relative;
+  text-align: center;
+  margin-right: 1rem;
+  color: currentColor;
+  font-family: "muli-bold", Helvetica, Arial, sans-serif;
+  transition: all 200ms;
+}
+
+.files__link span {
+  display: block;
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+  width: 100%;
+}
+
+.files__link:hover {
+  background-color: rgba(225, 0, 93, 0.8);
+  color: #fff;
 }
