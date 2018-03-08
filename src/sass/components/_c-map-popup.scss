@@ -69,13 +69,13 @@ $dp: 205px;
     @include set-font-size(1.6rem, 1.6rem, 1.6rem);
     line-height: 1.2;
     margin-bottom: $spacing--x-tiny;
+    font-weight: 700;
   }
 
   .location-title {
     @include set-font-size(1.6rem, 1.6rem, 1.6rem);
     line-height: 1.2;
     margin-bottom: $spacing--x-tiny;
-
   }
 
   .location-date {
@@ -90,13 +90,13 @@ $dp: 205px;
         margin-bottom: $spacing--x-small;
 
         &__title {
-
             color: currentColor;
             @include set-font-size(1.3rem, 1.3rem, 1.3rem);
             line-height: 1;
             position: relative;
             overflow: hidden;
             margin-bottom: $spacing--tiny;
+            font-weight: 700;
 
             span {
                 display: inline-block;

@@ -39,12 +39,19 @@ $welcomeHeight: 100vh;
         }
     }
 
+    &__title-container {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
     &__title {
         color: $pink;
         font-family: $font-primary--bold;
-        @include set-font-size(3.8rem, 4rem, 4.8rem);
+        @include set-font-size(4rem, 5rem, 6rem);
         line-height: 1;
         margin-bottom: $spacing--large;
+        font-weight: 700;
     }
 
     &__sub-title {
@@ -101,15 +108,29 @@ $welcomeHeight: 100vh;
         $dimensions: 100%;
         width: $dimensions;
         height: $dimensions;
-        transform: translateY(0px);
         transition: all .3s ease;
+        animation: bounce 2s infinite;
+        fill: $white;
     }
 
     &:hover {
         svg {
-            transform: translateY(5px);
+            animation-play-state: paused;
+            fill: $pink;
         }
     }
+}
+
+.power-logo-container {
+    width: 100%;
+    position: absolute;
+    padding-top: $spacing--medium;
+    z-index: 80;
+}
+
+.power-logo {
+    width: 300px;
+    height: 65px;
 }
 
 .mediacom-logo-container {
@@ -121,12 +142,24 @@ $welcomeHeight: 100vh;
 }
 
 .mediacom-logo {
-    width: 180px;
-    height: 30px;
+    width: 220px;
+    height: 110px;
 
     @include breakpoint($medium) {
         bottom: 0px;
         position: relative;
     }
 
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        @include transform(translateY(0));
+      }
+        40% {
+        @include transform(translateY(-30px));
+      }
+        60% {
+        @include transform(translateY(-15px));
+      }
 }

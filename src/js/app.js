@@ -14,4 +14,6 @@ require("./login-form");
 // Map popup
 require("./map-popup");
 
+require("./scroll-to");
+
 //TO GET THEME PATH use site_data.themePath

@@ -5,9 +5,9 @@
 "use-strict";
 
 (function() {
-    const user_pass = document.getElementById("user_pass1");
-    const submit_button = document.getElementById("wp-submit1");
-    const loginform = document.getElementById("loginform1");
+    var user_pass = document.getElementById("user_pass1");
+    var submit_button = document.getElementById("wp-submit1");
+    var loginform = document.getElementById("loginform1");
 
     function intit() {
         if (loginform) {

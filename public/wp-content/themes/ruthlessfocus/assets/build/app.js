@@ -9831,9 +9831,11 @@ require("./login-form");
 // Map popup
 require("./map-popup");
 
+require("./scroll-to");
+
 //TO GET THEME PATH use site_data.themePath
 
-},{"./login-form":3,"./map-popup":4,"jquery":1}],3:[function(require,module,exports){
+},{"./login-form":3,"./map-popup":4,"./scroll-to":5,"jquery":1}],3:[function(require,module,exports){
 /* global require */
 /* global window */
 /* global site_data */
@@ -9841,9 +9843,9 @@ require("./map-popup");
 "use-strict";
 
 (function() {
-    const user_pass = document.getElementById("user_pass1");
-    const submit_button = document.getElementById("wp-submit1");
-    const loginform = document.getElementById("loginform1");
+    var user_pass = document.getElementById("user_pass1");
+    var submit_button = document.getElementById("wp-submit1");
+    var loginform = document.getElementById("loginform1");
 
     function intit() {
         if (loginform) {
@@ -9874,9 +9876,29 @@ require("./map-popup");
 //     const marker = document.getElementsByClassName("marker");
 //     const mapItem = document.getElementsByClassName("map-item");
 
+//     function hasClass(element, className) {
+//         return (
+//             element.className &&
+//             new RegExp("(^|\\s)" + className + "(\\s|$)").test(
+//                 element.className
+//             )
+//         );
+//     }
+
 //     for (i = 0; i < pop.length; i++) {
 //         pop[i].addEventListener("click", function(e) {
 //             e.stopPropagation();
+//         });
+
+//         document.addEventListener("click", function() {
+//             pop[i].hasClass("open", function() {
+//                 console.log("has class");
+//             });
+//             // if (hasClass(pop, "open")) {
+//             //     console.log("has class");
+//             // } else {
+//             //     console.log("No class");
+//             // }
 //         });
 //     }
 
@@ -9885,20 +9907,26 @@ require("./map-popup");
 //             e.preventDefault();
 //             e.stopPropagation();
 
+//             for (i = 0; i < mapItem.length; i++) {
+//                 //mapItem[i].classList.remove("open");
+//                 //this.parentElement.classList.toggle("open");
+//             }
+
 //             this.parentElement.classList.toggle("open");
 
-//             for (i = 0; i < mapItem.length; i++) {
-//                 // if (mapItem[i].classList.contains("open")) {
-//                 //     mapItem[i].classList.remove("open");
-//                 // }
-//                 mapItem[i].classList.remove("open");
-//             }
+//             // for (i = 0; i < mapItem.length; i++) {
+//             //     if (mapItem[i].classList.contains("open")) {
+//             //         mapItem[i].classList.remove("open");
+//             //     }
+//             //     mapItem[i].classList.remove("open");
+//             // }
 //         });
 //     }
 // })();
 
 (function($) {
-    const pop = $(".map-popup");
+    var pop = $(".map-popup");
+    var $document = $(document);
 
     pop.click(function(e) {
         e.stopPropagation();
@@ -9928,7 +9956,7 @@ require("./map-popup");
             .removeClass("open");
     });
 
-    $(document).click(function() {
+    $document.click(function() {
         pop.removeClass("open");
         $("a.marker")
             .parent()
@@ -9944,4 +9972,56 @@ require("./map-popup");
     });
 })(jQuery);
 
-},{}]},{},[2]);
+},{}],5:[function(require,module,exports){
+/* global require */
+/* global window */
+/* global site_data */
+/* jshint -W097 */
+
+"use strict";
+var $ = require("jquery");
+
+(function() {
+    var $chevron = $("[data-chevron]"),
+        speed = 1000,
+        $doc = $("html, body"),
+        $map = $("#map"),
+        $welcome = $("#welcome"),
+        $document = $(document);
+
+    $document.on("ready", function() {
+        $doc.animate(
+            {
+                scrollTop: $welcome.offset().top
+            },
+            speed,
+            "easeInOutQuart"
+        );
+    });
+
+    $.extend($.easing, {
+        def: "easeInOutQuart",
+        easeInOutQuart: function(x, t, b, c, d) {
+            if ((t /= d / 2) < 1) return c / 2 * t * t * t * t + b;
+            return -c / 2 * ((t -= 2) * t * t * t - 2) + b;
+        }
+    });
+
+    // On buton click
+    $chevron.on("click", scrollToElem);
+
+    // Scroll function
+    function scrollToElem(e) {
+        e.preventDefault();
+        history.pushState(null, null, "");
+        $doc.animate(
+            {
+                scrollTop: $map.offset().top
+            },
+            speed,
+            "easeInOutQuart"
+        );
+    }
+})();
+
+},{"jquery":1}]},{},[2]);

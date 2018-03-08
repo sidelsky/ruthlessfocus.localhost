@@ -9,9 +9,29 @@
 //     const marker = document.getElementsByClassName("marker");
 //     const mapItem = document.getElementsByClassName("map-item");
 
+//     function hasClass(element, className) {
+//         return (
+//             element.className &&
+//             new RegExp("(^|\\s)" + className + "(\\s|$)").test(
+//                 element.className
+//             )
+//         );
+//     }
+
 //     for (i = 0; i < pop.length; i++) {
 //         pop[i].addEventListener("click", function(e) {
 //             e.stopPropagation();
+//         });
+
+//         document.addEventListener("click", function() {
+//             pop[i].hasClass("open", function() {
+//                 console.log("has class");
+//             });
+//             // if (hasClass(pop, "open")) {
+//             //     console.log("has class");
+//             // } else {
+//             //     console.log("No class");
+//             // }
 //         });
 //     }
 
@@ -20,20 +40,26 @@
 //             e.preventDefault();
 //             e.stopPropagation();
 
+//             for (i = 0; i < mapItem.length; i++) {
+//                 //mapItem[i].classList.remove("open");
+//                 //this.parentElement.classList.toggle("open");
+//             }
+
 //             this.parentElement.classList.toggle("open");
 
-//             for (i = 0; i < mapItem.length; i++) {
-//                 // if (mapItem[i].classList.contains("open")) {
-//                 //     mapItem[i].classList.remove("open");
-//                 // }
-//                 mapItem[i].classList.remove("open");
-//             }
+//             // for (i = 0; i < mapItem.length; i++) {
+//             //     if (mapItem[i].classList.contains("open")) {
+//             //         mapItem[i].classList.remove("open");
+//             //     }
+//             //     mapItem[i].classList.remove("open");
+//             // }
 //         });
 //     }
 // })();
 
 (function($) {
-    const pop = $(".map-popup");
+    var pop = $(".map-popup");
+    var $document = $(document);
 
     pop.click(function(e) {
         e.stopPropagation();
@@ -63,7 +89,7 @@
             .removeClass("open");
     });
 
-    $(document).click(function() {
+    $document.click(function() {
         pop.removeClass("open");
         $("a.marker")
             .parent()

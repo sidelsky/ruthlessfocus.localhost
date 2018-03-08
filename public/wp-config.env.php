@@ -32,7 +32,7 @@ switch ($hostname) {
         break;
 
     // Production
-   	case 'ruthlessfocus.com':
+   	case 'mediacomruthlessfocus.com':
         define('WP_ENV', 'production');
         break;
 

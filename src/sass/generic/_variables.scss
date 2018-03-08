@@ -36,9 +36,14 @@ $error: $ms-red;
 //$primary-font: $arial;
 
 //Font faces
+//$font-primary: 'Century Gothic', 'Apple Gothic', '#{$font-name}-regular', Helvetica, Arial, sans-serif;
+//$font-primary--bold: 'Century Gothic', 'Apple Gothic', '#{$font-name}-bold', Helvetica, Arial, sans-serif;
+
 $font-name: 'muli';
-$font-primary: '#{$font-name}-regular', Helvetica, Arial, sans-serif;
-$font-primary--bold: '#{$font-name}-bold', Helvetica, Arial, sans-serif;
+$gothic: 'Century Gothic';
+$font-primary: '#{$gothic}', '#{$font-name}-regular', Helvetica, Arial, sans-serif;
+$font-primary--bold: '#{$gothic}', '#{$font-name}-bold', Helvetica, Arial, sans-serif;
+
 
 $primary-font-color: $grey;
 $primary-font-size: 16px;
