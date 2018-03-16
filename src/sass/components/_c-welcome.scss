@@ -5,11 +5,11 @@ $welcomeHeight: 100vh;
     background-image: url('img/background-welcome.jpg');
     background-position: center center;
     background-size: cover;
-    background-repeat: no-repeat;
-    padding: 0 $spacing--large;
+    background-repeat: no-repeat;    
 
     @include breakpoint($medium) {
         height: $welcomeHeight;
+        padding: 0 $spacing--large;
     }
 
     &__content-container {
@@ -41,37 +41,99 @@ $welcomeHeight: 100vh;
 
     &__title-container {
         position: relative;
-        top: 50%;
-        transform: translateY(-50%);
+
+        @include breakpoint($small) {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
     }
 
+    // title
     &__title {
+        color: $white;
+        font-family: $font-primary--bold;
+        @include set-font-size(3rem, 5rem, 6rem);
+        line-height: 1;
+        margin-bottom: $spacing--tiny;
+        font-weight: 700;
+        text-transform: uppercase;
+
+        @include breakpoint($small){
+            margin-bottom: $spacing--small;
+        }
+
+    }
+
+    // subtitle
+    &__sub-title {
         color: $pink;
         font-family: $font-primary--bold;
-        @include set-font-size(4rem, 5rem, 6rem);
+        @include set-font-size(3rem, 5rem, 6rem);
         line-height: 1;
-        margin-bottom: $spacing--large;
+        margin-bottom: $spacing--small;
         font-weight: 700;
+
+        @include breakpoint($small){
+            margin-bottom: $spacing--large;
+        }
     }
 
-    &__sub-title {
+    // paragraph
+    &__para {
         color: $white;
-        @include set-font-size(2rem, 3rem, 3.8rem);
-        line-height: 1.2;
+        font-family: $font-primary;
+        @include set-font-size(1.6rem, 2.7rem, 2.7rem);
+        line-height: 1.25;
+        
+        strong {
+            font-weight: 700;
+        }
+
+        &--mobile {
+            display: block;
+            text-align: center;
+            strong {
+                margin-bottom: $spacing--tiny;
+                display: block;
+            }
+            @include breakpoint($small){
+                display: none;
+            }
+
+        }
+
+        &--desktop {
+            display: none;
+            @include breakpoint($small){
+                display: block;
+            }
+
+        }
+
     }
+    
 
 
     &__map-container {
         $welcomeHeight: 100vh;
-        height: $welcomeHeight;
         background-image: url('img/background-map.jpg');
         background-position: center center;
         background-size: cover;
         background-repeat: no-repeat;
-        padding: 0 $spacing--large;
+
+        @include breakpoint($small){
+            height: $welcomeHeight;
+        }
+
+        @include breakpoint($medium) {
+            padding: 0 $spacing--large;
+        }
 
         .c-welcome__content-container {
-            height: $welcomeHeight;
+            @include breakpoint($small){
+                height: $welcomeHeight;
+            }
         }
        
     }
@@ -79,9 +141,17 @@ $welcomeHeight: 100vh;
 }
 
 .c-welcome__map {
-    position: relative;
+    position: absolute;
 	top: 50%;
     transform: translateY(-50%);
+    overflow: hidden;
+    display: none;
+
+    @include breakpoint($small){
+        display: block;
+        overflow: visible;
+    }
+
     
     img {
         display: block;
@@ -94,14 +164,24 @@ $welcomeHeight: 100vh;
 
 .down-arrow {
     display: block;
-    $dimensions: 45px;
+    $dimensions: 30px;
     width: $dimensions;
     height: $dimensions;
     margin: 0 auto;
+    bottom: -25px;
+    position: relative;
+    display: none;
+
+    @include breakpoint($small){
+        display: block;
+    }
 
     @include breakpoint($medium) {
         @include vertical-align(absolute, 50%);
+        $dimensions: 45px;
         bottom: $dimensions;
+        width: $dimensions;
+        height: $dimensions;
     }
 
     svg {
@@ -122,30 +202,47 @@ $welcomeHeight: 100vh;
 }
 
 .power-logo-container {
-    width: 100%;
+    left: 0;
+    right: 0;
     position: absolute;
-    padding-top: $spacing--medium;
+    padding-top: $spacing--x-large + .8;
     z-index: 80;
+    display: none;
+
+    @include breakpoint($small){
+        display: block;
+    }
 }
 
 .power-logo {
-    width: 300px;
-    height: 65px;
+    width: 240px;
+    height: 90px;
+
+    @include breakpoint($small) {
+        width: 330px;
+        height: 90px;
+    }
 }
 
 .mediacom-logo-container {
     text-align: center;
     padding: $spacing--large 0;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+
+    @include breakpoint($small) {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
 }
 
 .mediacom-logo {
-    width: 220px;
-    height: 110px;
+    width: 150px;
+    height: 100px;
 
-    @include breakpoint($medium) {
+    @include breakpoint($small) {
+        width: 220px;
+        height: 110px;
         bottom: 0px;
         position: relative;
     }

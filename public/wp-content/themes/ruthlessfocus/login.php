@@ -3,7 +3,13 @@
  * Template Name: Login - page template
  */
 
-include("header.php");
+    $url = site_url();
+    if ( is_user_logged_in() ) {
+        wp_redirect( $url . '/welcome' );
+        exit;
+    } 
+
+    include("header.php");
 
 ?>
 
@@ -22,10 +28,15 @@ include("header.php");
                 //Lets check to see if the 'Theme my login plugin is active...
                 if( function_exists( 'theme_my_login' ) ) {
                     echo do_shortcode( '[theme-my-login show_title=0]' );
-                } else {
-                    //We might want a message here...
-                    //echo "Please <a href='mailto:someone@yoursite.com?subject=User login request from $blog_name&body=Please may be granted access to $blog_name  '>email us</a> for your personal login details...";
                 }
+
+                $paragraph_mobile = '<strong>Please access this website on your desktop. You can then download the files and view them at the best quality.</strong>';
+    
+                echo '<div class="c-welcome__title-container">';
+                    echo '<div data-welcome-message>';
+                        echo '<p class="c-welcome__para c-welcome__para--mobile">'. $paragraph_mobile .'</p>';
+                    echo '</div>';
+                echo '</div>';
             ?>
 
         </div>

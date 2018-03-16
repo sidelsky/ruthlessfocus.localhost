@@ -1,4 +1,4 @@
-$dp: 205px;
+$dp: 260px;
 .map-popup {
     position: relative;
     left: 50%;
@@ -13,9 +13,9 @@ $dp: 205px;
     visibility: hidden;
     border-radius: 10px;
     text-align: left;
-    color: $grey;
+    color: lighten($grey, 10%);
 
-    @include breakpoint($medium) {
+    @include breakpoint($large) {
         position: absolute;
         left: -$dp;
         width: $dp;
@@ -27,6 +27,8 @@ $dp: 205px;
         &::before {
             content: 'Scheduled: ';
             font-weight: 700;
+            display: block;
+            margin-bottom: $spacing--x-tiny;
         }
     }
 
@@ -110,9 +112,7 @@ $dp: 205px;
                 opacity: .6;
                 height: 1px;
                 position: relative;
-                top: 50%;
-                transform: translateY(-300%);
-                width: 70%;
+                width: 100%;
             }
 
         }

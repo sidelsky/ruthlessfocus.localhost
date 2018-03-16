@@ -1,15 +1,25 @@
-$dimensions: 21px;
+
 
 .map-item {
+    $dimensions: 17px;
     position: absolute;
     width: $dimensions;
     height: $dimensions;
+
+    @include breakpoint($small) {
+
+        $dimensions: 21px;
+        width: $dimensions;
+        height: $dimensions;
+
+    }
 }
 
 .marker {
     position: relative;
     z-index: 1;
     display: inline-block;
+    $dimensions: 17px;
     width: $dimensions;
     height: $dimensions;
     line-height: $dimensions;
@@ -27,6 +37,22 @@ $dimensions: 21px;
         fill: $pink;
     }
 
+    @include breakpoint($small) {
+        $dimensions: 21px;
+        width: $dimensions;
+        height: $dimensions;
+
+        svg {
+            $dimensions: 7px;
+            width: $dimensions;
+            height: $dimensions;
+        }
+
+    }
+
+    &:hover {
+        z-index: 3;
+    }
 
   }
 
@@ -45,6 +71,8 @@ $dimensions: 21px;
             $dimensions: 11px;
             width: $dimensions;
             height: $dimensions;
+
+            
         }
 
         &:hover {

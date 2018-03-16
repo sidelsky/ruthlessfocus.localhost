@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (C) 2014 ServMask Inc.
+ * Copyright (C) 2014-2018 ServMask Inc.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -35,8 +35,8 @@ class Ai1wmue_Main_Controller {
 
 		// Activate hooks
 		$this->activate_actions()
-			 ->activate_filters()
-			 ->activate_textdomain();
+			->activate_filters()
+			->activate_textdomain();
 	}
 
 	/**
@@ -82,6 +82,9 @@ class Ai1wmue_Main_Controller {
 	private function activate_filters() {
 		add_filter( 'ai1wm_max_file_size', array( $this, 'max_file_size' ) );
 
+		// Add links to plugin list page
+		add_filter( 'plugin_row_meta', array( $this, 'plugin_row_meta' ), 5, 2 );
+
 		return $this;
 	}
 
@@ -111,13 +114,27 @@ class Ai1wmue_Main_Controller {
 			<p>
 				<?php
 				_e(
-					'All in One WP Migration is not activated. Please activate the plugin in order to use Unlimited extension.',
+					'Unlimited extension requires <a href="https://wordpress.org/plugins/all-in-one-wp-migration/" target="_blank">All-in-One WP Migration plugin</a> to be activated. ' .
+					'<a href="https://help.servmask.com/knowledgebase/install-instructions-for-unlimited-extension/" target="_blank">Unlimited extension install instructions</a>',
 					AI1WMUE_PLUGIN_NAME
 				);
 				?>
 			</p>
 		</div>
 		<?php
+	}
+
+	/**
+	 * Add links to plugin list page
+	 *
+	 * @return array
+	 */
+	public function plugin_row_meta( $links, $file ) {
+		if ( $file == AI1WMUE_PLUGIN_BASENAME ) {
+			$links[] = Ai1wm_Template::get_content( 'main/user-guide', array(), AI1WMUE_TEMPLATES_PATH );
+		}
+
+		return $links;
 	}
 
 	/**

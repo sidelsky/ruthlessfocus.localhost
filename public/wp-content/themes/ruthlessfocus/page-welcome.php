@@ -4,8 +4,7 @@
      * Template name: Welcome template
      */
 
-    $title = get_field( 'title' );
-    $subtitle = get_field( 'subtitle' );
+
     // header
     include("header.php");
     // welcome

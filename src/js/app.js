@@ -16,4 +16,6 @@ require("./map-popup");
 
 require("./scroll-to");
 
+require("./animate.js");
+
 //TO GET THEME PATH use site_data.themePath

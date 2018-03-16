@@ -1,3 +1,15 @@
+
+.tml-login {
+
+	display: none;
+
+	@include breakpoint(569px) {
+		display: block;
+	}
+
+}
+
+
 .login {
   @extend %centre;
   background-image: url('img/background-home.jpg');
@@ -103,4 +115,24 @@
 
 	}
 
+}
+
+.error {
+    color: $white;
+    margin-bottom: $spacing--tiny;
+    strong {
+        color: currentColor;
+        font-weight: 700;
+    }
+    a {
+        color: currentColor;
+        text-decoration: underline;
+        display: none;
+        visibility: hidden;
+    }
+}
+
+.tml.tml-user-panel {
+	display: none;
+	visibility: hidden;
 }

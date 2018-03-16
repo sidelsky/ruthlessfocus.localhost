@@ -15,13 +15,15 @@ var $ = require("jquery");
         $document = $(document);
 
     $document.on("ready", function() {
-        $doc.animate(
-            {
-                scrollTop: $welcome.offset().top
-            },
-            speed,
-            "easeInOutQuart"
-        );
+        if ($welcome.length) {
+            $doc.animate(
+                {
+                    scrollTop: $welcome.offset().top
+                },
+                speed,
+                "easeInOutQuart"
+            );
+        }
     });
 
     $.extend($.easing, {
@@ -39,12 +41,14 @@ var $ = require("jquery");
     function scrollToElem(e) {
         e.preventDefault();
         history.pushState(null, null, "");
-        $doc.animate(
-            {
-                scrollTop: $map.offset().top
-            },
-            speed,
-            "easeInOutQuart"
-        );
+        if ($map.length) {
+            $doc.animate(
+                {
+                    scrollTop: $map.offset().top
+                },
+                speed,
+                "easeInOutQuart"
+            );
+        }
     }
 })();
