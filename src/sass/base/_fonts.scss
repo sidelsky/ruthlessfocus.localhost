@@ -1,0 +1,7 @@
+/*------------------------------------*\
+    FONT FAMILIES
+\*------------------------------------*/
+$font-name: 'muli';
+$file-path: 'fonts/#{$font-name}/';
+@include web-font('#{$font-name}-regular', '#{$file-path}', '#{$font-name}-regular');
+@include web-font('#{$font-name}-bold', '#{$file-path}', '#{$font-name}-bold');

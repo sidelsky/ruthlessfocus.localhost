@@ -1,0 +1,138 @@
+
+.tml-login {
+
+	display: none;
+
+	@include breakpoint(569px) {
+		display: block;
+	}
+
+}
+
+
+.login {
+  @extend %centre;
+  background-image: url('img/background-home.jpg');
+  background-position: center center;
+  background-size: cover;
+  
+  &-canvas {
+    max-width: 280px;
+    padding: 2rem;
+	width: 100%;
+	
+    &__logo {
+      @include aspect-ratio(65, 50);
+      margin-bottom: 4rem;
+      position: relative;
+    }
+
+    &__your-profile {
+      max-width: 1280px;
+    }
+
+    svg {
+      display: block;
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+
+  }
+}
+
+
+.input {
+	$font-size: 1.4rem;
+	border-radius: 10px;
+	line-height: 46px;
+	background-color: rgba($black, .2);
+	border: solid 2px rgba($white, .6);
+	@include placeholder($white, $font-size);
+	color: $white;
+	font-size: $font-size;
+
+	&:focus {
+		border: solid 2px $white;
+		//box-shadow: 0 0 10px 1px rgba($white, 1),;
+	}
+
+}
+
+.tml-rememberme-wrap {
+
+	margin-bottom: 3rem;
+	padding-left: .9rem;
+
+	label {
+
+		color: $white;
+		@include set-font-size(1.4rem, 1.4rem, 1.4rem);
+
+	}
+
+}
+
+
+.tml-submit-wrap {
+
+	text-align: center;
+
+	.submit {
+		background-color: transparent;
+		$dimentions: 48px;
+		height: $dimentions;
+		width: $dimentions;
+		border: none;
+		background-image: url('data:image/svg+xml,%3Csvg%20width%3D%2222%22%20height%3D%2219%22%20viewBox%3D%220%200%2022%2019%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%3Cpath%20d%3D%22M22%209.5001c0-.231-.162-.539-.326-.688l-9.264-8.5c-.431-.386-1.133-.431-1.637-.039-.451.35-.461%201.034-.044%201.414l7.435%206.813H1.158c-.639%200-1.158.447-1.158%201%200%20.552.519%201%201.158%201h17.006l-7.435%206.812c-.417.381-.388%201.047.044%201.415.456.387%201.211.353%201.637-.039l9.264-8.501c.271-.23.321-.452.326-.687%22%20fill%3D%22%23FFF%22%20fill-rule%3D%22evenodd%22%2F%3E%0A%3C%2Fsvg%3E%0A');
+		background-repeat: no-repeat;
+		background-position: center center;
+		border-radius: 50%;
+		background-color: rgba($black, .2);
+		border: solid 2px $white;
+		margin: 0 auto;
+		transition: ease .2s opacity 1s;
+		transition: ease-in-out .2s background-position;
+		
+		&:hover {
+			transition: ease-in-out .2s background-position;
+			background-position: 15px center;
+			cursor: pointer;
+		}
+
+		&:disabled {
+			background-position: center center;
+			opacity: 0;
+
+			&:hover {
+				background-position: 15px center;
+				cursor: default;
+			}
+
+		}
+
+	}
+
+}
+
+.error {
+    color: $white;
+    margin-bottom: $spacing--tiny;
+    strong {
+        color: currentColor;
+        font-weight: 700;
+    }
+    a {
+        color: currentColor;
+        text-decoration: underline;
+        display: none;
+        visibility: hidden;
+    }
+}
+
+.tml.tml-user-panel {
+	display: none;
+	visibility: hidden;
+}

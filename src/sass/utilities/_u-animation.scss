@@ -1,0 +1,41 @@
+@keyframes reveal {
+	0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+	100% {
+    opacity: 0;
+  }
+}
+
+@keyframes hide {
+	0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+	100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.fadeOut {
+  animation: fadeOut .8s ease-out 1 forwards;
+  opacity: 0;
+  visibility: hidden;
+}

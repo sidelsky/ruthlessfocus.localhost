@@ -11,12 +11,12 @@
 // Spritesheet
 // @import "sprites";
 
+// Variables
+@import 'generic/variables';
+
 // Generic
 @import 'generic/functions';
 @import 'generic/mixins';
-
-// Variables
-@import 'generic/variables';
 
 // Reset
 @import 'vendor/reset';
@@ -30,6 +30,26 @@
 @import 'base/table';
 @import 'base/typography';
 @import 'base/general';
+@import 'base/fonts';
+
+//Utilities
+@import 'utilities/u-img-cover';
+@import 'utilities/u-visually-hidden';
+@import 'utilities/u-video-aspect-ratio';
+@import 'utilities/u-paragraph';
+@import 'utilities/u-gradient';
+@import 'utilities/u-animation';
+@import 'utilities/u-centre';
+
+//Components
+@import 'components/c-hamburger';
+@import 'components/c-login-form';
+@import 'components/c-notification';
+@import 'components/c-buttons';
+@import 'components/c-m-logo';
+@import 'components/c-welcome';
+@import 'components/c-marker';
+@import 'components/c-map-popup';
 
 // Partials
 @import 'partials/app';

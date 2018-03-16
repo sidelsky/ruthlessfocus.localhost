@@ -1,0 +1,262 @@
+$welcomeHeight: 100vh;
+
+.c-welcome {
+
+    background-image: url('img/background-welcome.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;    
+
+    @include breakpoint($medium) {
+        height: $welcomeHeight;
+        padding: 0 $spacing--large;
+    }
+
+    &__content-container {
+        background-color: $black;
+        max-width: 1024px;
+        margin: 0 auto;
+        text-align: center;
+        position: relative;
+
+        // with height
+        &--height {
+            padding: $spacing--small $spacing--medium;
+
+            @include breakpoint($medium) {
+                padding: $spacing--large $spacing--jumbo;
+                height: $welcomeHeight;
+            }
+        }
+    }
+
+    &__logo {
+        margin-bottom: 4rem;
+
+        svg {
+            width: 165px;
+            height: auto;
+        }
+    }
+
+    &__title-container {
+        position: relative;
+
+        @include breakpoint($small) {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+    }
+
+    // title
+    &__title {
+        color: $white;
+        font-family: $font-primary--bold;
+        @include set-font-size(3rem, 5rem, 6rem);
+        line-height: 1;
+        margin-bottom: $spacing--tiny;
+        font-weight: 700;
+        text-transform: uppercase;
+
+        @include breakpoint($small){
+            margin-bottom: $spacing--small;
+        }
+
+    }
+
+    // subtitle
+    &__sub-title {
+        color: $pink;
+        font-family: $font-primary--bold;
+        @include set-font-size(3rem, 5rem, 6rem);
+        line-height: 1;
+        margin-bottom: $spacing--small;
+        font-weight: 700;
+
+        @include breakpoint($small){
+            margin-bottom: $spacing--large;
+        }
+    }
+
+    // paragraph
+    &__para {
+        color: $white;
+        font-family: $font-primary;
+        @include set-font-size(1.6rem, 2.7rem, 2.7rem);
+        line-height: 1.25;
+        
+        strong {
+            font-weight: 700;
+        }
+
+        &--mobile {
+            display: block;
+            text-align: center;
+            strong {
+                margin-bottom: $spacing--tiny;
+                display: block;
+            }
+            @include breakpoint($small){
+                display: none;
+            }
+
+        }
+
+        &--desktop {
+            display: none;
+            @include breakpoint($small){
+                display: block;
+            }
+
+        }
+
+    }
+    
+
+
+    &__map-container {
+        $welcomeHeight: 100vh;
+        background-image: url('img/background-map.jpg');
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        @include breakpoint($small){
+            height: $welcomeHeight;
+        }
+
+        @include breakpoint($medium) {
+            padding: 0 $spacing--large;
+        }
+
+        .c-welcome__content-container {
+            @include breakpoint($small){
+                height: $welcomeHeight;
+            }
+        }
+       
+    }
+
+}
+
+.c-welcome__map {
+    position: absolute;
+	top: 50%;
+    transform: translateY(-50%);
+    overflow: hidden;
+    display: none;
+
+    @include breakpoint($small){
+        display: block;
+        overflow: visible;
+    }
+
+    
+    img {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+
+.down-arrow {
+    display: block;
+    $dimensions: 30px;
+    width: $dimensions;
+    height: $dimensions;
+    margin: 0 auto;
+    bottom: -25px;
+    position: relative;
+    display: none;
+
+    @include breakpoint($small){
+        display: block;
+    }
+
+    @include breakpoint($medium) {
+        @include vertical-align(absolute, 50%);
+        $dimensions: 45px;
+        bottom: $dimensions;
+        width: $dimensions;
+        height: $dimensions;
+    }
+
+    svg {
+        $dimensions: 100%;
+        width: $dimensions;
+        height: $dimensions;
+        transition: all .3s ease;
+        animation: bounce 2s infinite;
+        fill: $white;
+    }
+
+    &:hover {
+        svg {
+            animation-play-state: paused;
+            fill: $pink;
+        }
+    }
+}
+
+.power-logo-container {
+    left: 0;
+    right: 0;
+    position: absolute;
+    padding-top: $spacing--x-large + .8;
+    z-index: 80;
+    display: none;
+
+    @include breakpoint($small){
+        display: block;
+    }
+}
+
+.power-logo {
+    width: 240px;
+    height: 90px;
+
+    @include breakpoint($small) {
+        width: 330px;
+        height: 90px;
+    }
+}
+
+.mediacom-logo-container {
+    text-align: center;
+    padding: $spacing--large 0;
+
+    @include breakpoint($small) {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+}
+
+.mediacom-logo {
+    width: 150px;
+    height: 100px;
+
+    @include breakpoint($small) {
+        width: 220px;
+        height: 110px;
+        bottom: 0px;
+        position: relative;
+    }
+
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        @include transform(translateY(0));
+      }
+        40% {
+        @include transform(translateY(-30px));
+      }
+        60% {
+        @include transform(translateY(-15px));
+      }
+}

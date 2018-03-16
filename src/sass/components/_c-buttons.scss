@@ -1,0 +1,80 @@
+.c-button {
+  $color: fff;
+  //@include adjust-font-size-to(17px);
+  background-color: $ms-blue;
+  background-image: url('data:image/svg+xml,%3Csvg%0A%20%20%20%20width%3D%22100%25%22%0A%20%20%20%20height%3D%22100%25%22%0A%20%20%20%20viewBox%3D%220%200%20120%20205%22%0A%20%20%20%20version%3D%221.1%22%0A%20%20%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20%20%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%0A%20%20%20%20xml%3Aspace%3D%22preserve%22%0A%20%20%20%20style%3D%22fill-rule%3Aevenodd%3Bclip-rule%3Aevenodd%3Bstroke-linejoin%3Around%3Bstroke-miterlimit%3A1.41421%3B%22%3E%3Cpath%20d%3D%22M0%2C16.946l85.25%2C85.527l-85.25%2C85.527l17%2C16.946l102.137%2C-102.473l-102.137%2C-102.473l-17%2C16.946Z%22%20style%3D%22fill%3A%23#{$color}%3Bfill-rule%3Anonzero%3B%22%2F%3E%3C%2Fsvg%3E');
+  background-position: 90% center;
+  background-repeat: no-repeat;
+  background-size: 13% 35%;
+  border: 0;
+  box-shadow: 0 2px 5px 0 rgba($black, .26);
+  color: $white;
+  outline: none;
+  //padding: rhythm(2) rhythm(8) rhythm(2) rhythm(2);
+  text-align: left;
+  text-transform: uppercase;
+  transition: box-shadow .2s cubic-bezier(.4, 0, .2, 1);
+
+  //Login butotn
+  &--login {
+    background-color: transparent;
+    background-position: center right;
+    border: solid 3px rgba($white, 1);
+    color: rgba($white, .6);
+    font-weight: 700;
+    //margin-bottom: rhythm(1);
+    //padding: rhythm(2.5) rhythm(2);
+    width: 100%;
+
+    &:active {
+      background-color: none;
+    }
+
+  }
+
+  //Hover
+  &:hover {
+    @at-root {
+
+      @keyframes arrowAction {
+        0%, 20%, 50%, 80%, 100% {
+          background-size: 13% 35%;
+        }
+
+        40% {
+          background-size: 9% 35%;
+        }
+
+        60% {
+          background-size: 13% 35%;
+        }
+
+      }
+
+    }
+
+    animation: arrowAction 1s ease-in-out infinite;
+    background-size: 10% 35%;
+    box-shadow: 0 6px 17px 0 rgba($black, .3);
+    color: $white;
+    cursor: pointer;
+  }
+
+  //Active
+  &:active {
+    background-color: darken($ms-blue--dark, 5%);
+    box-shadow: 0 0 0 0 rgba($black, .2);
+    color: $white;
+    //transition-delay: 0s;
+  }
+
+  //Disabled buttons
+  &:disabled {
+    background-color: transparent;
+    background-image: none;
+    box-shadow: none;
+    cursor: initial;
+    opacity: .1;
+  }
+
+}

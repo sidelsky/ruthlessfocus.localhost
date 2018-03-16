@@ -2,16 +2,43 @@
 $row-width: 120rem !default;
 $max-width: 80%;
 
-//Colors
+//Primary colours
 $black: #000;
 $white: #fff;
-$grey: #999;
+$grey: #ccc;
+
+//Colors
+$ms-black: #404040;
+$ms-grey: #f4f4f4;
+$ms-yellow: #fce444;
+$ms-blue: #4bb4e7;
+$ms-blue--dark: darken($ms-blue, 15%);
+$ms-red: #e3002b;
+$ms-purple: #3b5cad;
+$ms-red--dark: darken($ms-red, 15%);
+$pink: #E1005D;
+
+$confirm: #02c519;
+$error: $ms-red;
+
+
 
 //Typefaces
-$arial: 'Arial', sans-serif;
+//$arial: 'Arial', sans-serif;
 
 //Global
-$primary-font: $arial;
+//$primary-font: $arial;
+
+//Font faces
+//$font-primary: 'Century Gothic', 'Apple Gothic', '#{$font-name}-regular', Helvetica, Arial, sans-serif;
+//$font-primary--bold: 'Century Gothic', 'Apple Gothic', '#{$font-name}-bold', Helvetica, Arial, sans-serif;
+
+$font-name: 'muli';
+$gothic: 'Century Gothic';
+$font-primary: '#{$gothic}', '#{$font-name}-regular', Helvetica, Arial, sans-serif;
+$font-primary--bold: '#{$gothic}', '#{$font-name}-bold', Helvetica, Arial, sans-serif;
+
+
 $primary-font-color: $grey;
 $primary-font-size: 16px;
 $primary-font-weight: normal;
@@ -30,6 +57,18 @@ $xx-large: 1600px;
 //Spacing
 $margin-default: 4rem;
 
+$spacing--x-tiny: .5rem;
+$spacing--tiny: 1rem;
+$spacing--x-small: 1.5rem;
+$spacing--small: 2rem;
+$spacing--x-medium: 2.5rem;
+$spacing--medium: 3rem;
+$spacing--x-large: 3.5rem;
+$spacing--large: 4rem;
+$spacing--large-x: 5rem;
+$spacing--large-xx: 6rem;
+$spacing--jumbo: 10rem;
+
 //Hamburger menu
 $button-width: 18px;                    // The width of the button area
 $button-height: 18px;                   // The height of the button area
@@ -37,3 +76,5 @@ $bar-thickness: 2px;                    // The thickness of the button bars
 $button-pad: 0;                      // The left/right padding between button area and bars.
 $button-bar-space: 4px;                // The spacing between button bars
 $button-transistion-duration: .3s;     // The transition duration
+
+

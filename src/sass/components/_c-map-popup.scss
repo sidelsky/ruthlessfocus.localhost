@@ -1,0 +1,156 @@
+$dp: 260px;
+.map-popup {
+    position: relative;
+    left: 50%;
+    top: 50%;
+    z-index: 99;
+    width: $dp;
+    padding: $spacing--x-small;
+    background-color: rgba($black, .9);
+    transition: all 300ms ease-in;
+    transform: translate(-50%,-50%);
+    opacity: 0;
+    visibility: hidden;
+    border-radius: 10px;
+    text-align: left;
+    color: lighten($grey, 10%);
+
+    @include breakpoint($large) {
+        position: absolute;
+        left: -$dp;
+        width: $dp;
+        transform: translateY(-50%);
+    
+    }
+
+    .location-date {
+        &::before {
+            content: 'Scheduled: ';
+            font-weight: 700;
+            display: block;
+            margin-bottom: $spacing--x-tiny;
+        }
+    }
+
+  }
+
+  // Open popup
+  .open {
+
+    .map-popup {
+        opacity: 1;
+        visibility: visible;
+      }
+
+  }
+
+
+  // Active marker
+.marker--active {
+    
+    .map-popup {
+        color: $ms-black;
+        background-color: rgba($white, .9);
+
+        .location-date {
+            &::before {
+                display: none;
+            }
+        }
+
+    }
+
+}
+
+  
+
+  .popup-title {
+    color: $pink;
+    text-transform: uppercase;
+    font-family: $font-primary--bold;
+    @include set-font-size(1.6rem, 1.6rem, 1.6rem);
+    line-height: 1.2;
+    margin-bottom: $spacing--x-tiny;
+    font-weight: 700;
+  }
+
+  .location-title {
+    @include set-font-size(1.6rem, 1.6rem, 1.6rem);
+    line-height: 1.2;
+    margin-bottom: $spacing--x-tiny;
+  }
+
+  .location-date {
+    @include set-font-size(1.1rem, 1.1rem, 1.1rem);
+    line-height: 1;
+    margin-bottom: $spacing--x-small;
+    display: inline-block;
+  }
+
+
+  .files {
+        margin-bottom: $spacing--x-small;
+
+        &__title {
+            color: currentColor;
+            @include set-font-size(1.3rem, 1.3rem, 1.3rem);
+            line-height: 1;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: $spacing--tiny;
+            font-weight: 700;
+
+            span {
+                display: inline-block;
+                margin-right: $spacing--x-tiny;
+            }
+
+            &::after {
+                content: "";
+                display: inline-block;
+                background-color: currentColor;
+                opacity: .6;
+                height: 1px;
+                position: relative;
+                width: 100%;
+            }
+
+        }
+
+        // wrapper
+        &__wrapper {
+            display: flex;
+        }
+
+        // files
+        &__link {
+            $dimensions: 48px;
+            width: $dimensions;
+            height: $dimensions;
+            border-radius: 50%;
+            background-color: transparent;
+            display: block;
+            border: solid 1px $pink;
+            position: relative;
+            text-align: center;
+            margin-right: $spacing--tiny;
+            color: currentColor;
+            font-family: $font-primary--bold;
+            transition: all 200ms;
+
+            span {
+                display: block;
+                top: 50%;
+                transform: translateY(-50%);
+                position: absolute;
+                width: 100%;
+            }
+
+            &:hover {
+                background-color: rgba($pink, .8);
+                color: $white;
+            }
+        }
+
+
+  }

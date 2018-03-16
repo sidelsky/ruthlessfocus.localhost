@@ -224,7 +224,7 @@ function wp_authenticate_email_password( $user, $email, $password ) {
 		return new WP_Error( 'invalid_email',
 			__( '<strong>ERROR</strong>: Invalid email address.' ) .
 			' <a href="' . wp_lostpassword_url() . '">' .
-			__( 'Lost your password?' ) .
+			__( 'zLost your password?' ) .
 			'</a>'
 		);
 	}
