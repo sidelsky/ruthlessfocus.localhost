@@ -3,3 +3,4 @@ bower_components
 .sass-cache
 npm-debug.log
 public/wp-content/uploads/*
+public/wp-content/ai1wm-backups*
