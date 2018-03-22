@@ -18,4 +18,6 @@ require("./scroll-to");
 
 require("./animate.js");
 
+require("./remove-style.js");
+
 //TO GET THEME PATH use site_data.themePath

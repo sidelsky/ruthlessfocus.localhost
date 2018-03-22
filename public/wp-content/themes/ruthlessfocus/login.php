@@ -30,13 +30,15 @@
                     echo do_shortcode( '[theme-my-login show_title=0]' );
                 }
 
-                $paragraph_mobile = '<strong>Please access this website on your desktop. You can then download the files and view them at the best quality.</strong>';
-    
-                echo '<div class="c-welcome__title-container">';
-                    echo '<div data-welcome-message>';
-                        echo '<p class="c-welcome__para c-welcome__para--mobile">'. $paragraph_mobile .'</p>';
+                /*
+                    $paragraph_mobile = '<strong>Please access this website on your desktop. You can then download the files and view them at the best quality.</strong>';
+        
+                    echo '<div class="c-welcome__title-container">';
+                        echo '<div data-welcome-message>';
+                            echo '<p class="c-welcome__para c-welcome__para--mobile">'. $paragraph_mobile .'</p>';
+                        echo '</div>';
                     echo '</div>';
-                echo '</div>';
+                */
             ?>
 
         </div>

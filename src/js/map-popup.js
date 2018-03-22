@@ -60,6 +60,7 @@
 (function($) {
     var pop = $(".map-popup");
     var $document = $(document);
+    var $close = $(".close");
 
     pop.click(function(e) {
         e.stopPropagation();
@@ -89,18 +90,27 @@
             .removeClass("open");
     });
 
-    $document.click(function() {
+    $close.on("click", function(e) {
+        pop.removeClass("open");
+        $("a.marker")
+            .parent()
+            .removeClass("open");
+
+        e.preventDefault();
+    });
+
+    $document.on("click", function() {
         pop.removeClass("open");
         $("a.marker")
             .parent()
             .removeClass("open");
     });
 
-    pop.each(function() {
-        var w = $(window).outerWidth(),
-            edge = Math.round($(this).offset().left + $(this).outerWidth());
-        if (w < edge) {
-            $(this).addClass("edge");
-        }
-    });
+    // $close.pop.each(function() {
+    //     var w = $(window).outerWidth(),
+    //         edge = Math.round($(this).offset().left + $(this).outerWidth());
+    //     if (w < edge) {
+    //         $(this).addClass("edge");
+    //     }
+    // });
 })(jQuery);

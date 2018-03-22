@@ -9901,9 +9901,11 @@ require("./scroll-to");
 
 require("./animate.js");
 
+require("./remove-style.js");
+
 //TO GET THEME PATH use site_data.themePath
 
-},{"./animate.js":2,"./login-form":4,"./map-popup":5,"./scroll-to":6,"jquery":1}],4:[function(require,module,exports){
+},{"./animate.js":2,"./login-form":4,"./map-popup":5,"./remove-style.js":6,"./scroll-to":7,"jquery":1}],4:[function(require,module,exports){
 /* global require */
 /* global window */
 /* global site_data */
@@ -9995,6 +9997,7 @@ require("./animate.js");
 (function($) {
     var pop = $(".map-popup");
     var $document = $(document);
+    var $close = $(".close");
 
     pop.click(function(e) {
         e.stopPropagation();
@@ -10024,23 +10027,88 @@ require("./animate.js");
             .removeClass("open");
     });
 
-    $document.click(function() {
+    $close.on("click", function(e) {
+        pop.removeClass("open");
+        $("a.marker")
+            .parent()
+            .removeClass("open");
+
+        e.preventDefault();
+    });
+
+    $document.on("click", function() {
         pop.removeClass("open");
         $("a.marker")
             .parent()
             .removeClass("open");
     });
 
-    pop.each(function() {
-        var w = $(window).outerWidth(),
-            edge = Math.round($(this).offset().left + $(this).outerWidth());
-        if (w < edge) {
-            $(this).addClass("edge");
-        }
-    });
+    // $close.pop.each(function() {
+    //     var w = $(window).outerWidth(),
+    //         edge = Math.round($(this).offset().left + $(this).outerWidth());
+    //     if (w < edge) {
+    //         $(this).addClass("edge");
+    //     }
+    // });
 })(jQuery);
 
 },{}],6:[function(require,module,exports){
+/* global require */
+/* global window */
+/* global site_data */
+/* jshint -W097 */
+
+"use-strict";
+
+/**
+ * Remove style
+ * @author Errol Sidelsky
+ */
+
+// debounce function - https://davidwalsh.name/javascript-debounce-function
+function debounce(func, wait, immediate) {
+    var timeout;
+    return function() {
+        var context = this,
+            args = arguments;
+        var later = function() {
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+        };
+        var callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) func.apply(context, args);
+    };
+}
+
+var $markerPos = $(".map-item"),
+    $window = $(window);
+
+function init() {
+    windowWidth();
+}
+
+function windowWidth() {
+    width = $window.width();
+
+    if (width < 768) {
+        $markerPos.removeAttr("style");
+    }
+}
+
+// window resize
+$window.on(
+    "resize orientationchange",
+    debounce(function() {
+        windowWidth();
+        //location.reload();
+    }, 500)
+);
+
+init();
+
+},{}],7:[function(require,module,exports){
 /* global require */
 /* global window */
 /* global site_data */

@@ -85,11 +85,16 @@
 
                     echo '<div class="map-item map-item'. $map_item_count++ .' '. $active_marker .'" style="top: '. $y_position .'%; left: '. $x_position .'%">';
                         $marker = $marker_count++;
+                        
                         echo '<a class="marker"  href="#marker' . $marker . '" >';
                             echo ' <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#shape-'. $icon .'" viewBox="0 0 32 32"></use></svg>';
-                            echo '<span class="u-sr-only">' . $main_title . '</span>';
+                            echo '<span class="on-mobile">' . $main_title . '</span>';
                         echo '</a>';
+
                         echo '<aside id="' . $marker . '" class="map-popup">';
+                            echo '<a href="#" class="close">';
+                                echo '<svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#shape-close" viewBox="0 0 32 32"></use></svg>';
+                            echo '</a>';
                             echo '<small">'. $staus .'</small>';
                             echo '<h3 class="popup-title">'. $main_title .'</h3>';
                             echo '<h4 class="location-title">'. $location_title .'</h4>';

@@ -1160,16 +1160,6 @@ a {
   transform: translateX(-2px) translateY(-1px) rotate(45deg);
 }
 
-.tml-login {
-  display: none;
-}
-
-@media (min-width: 569px) {
-  .tml-login {
-    display: block;
-  }
-}
-
 .login {
   background-image: url("img/background-home.jpg");
   background-position: center center;
@@ -1502,6 +1492,7 @@ body img.gform_ajax_spinner {
 
 .c-welcome__content-container--height {
   padding: 2rem 3rem;
+  height: auto;
 }
 
 @media (min-width: 768px) {
@@ -1524,7 +1515,7 @@ body img.gform_ajax_spinner {
   position: relative;
 }
 
-@media (min-width: 540px) {
+@media (min-width: 768px) {
   .c-welcome__title-container {
     top: 50%;
     transform: translateY(-50%);
@@ -1553,7 +1544,7 @@ body img.gform_ajax_spinner {
   }
 }
 
-@media (min-width: 540px) {
+@media (min-width: 768px) {
   .c-welcome__title {
     margin-bottom: 2rem;
   }
@@ -1580,7 +1571,7 @@ body img.gform_ajax_spinner {
   }
 }
 
-@media (min-width: 540px) {
+@media (min-width: 768px) {
   .c-welcome__sub-title {
     margin-bottom: 4rem;
   }
@@ -1619,19 +1610,9 @@ body img.gform_ajax_spinner {
   display: block;
 }
 
-@media (min-width: 540px) {
+@media (min-width: 768px) {
   .c-welcome__para--mobile {
     display: none;
-  }
-}
-
-.c-welcome__para--desktop {
-  display: none;
-}
-
-@media (min-width: 540px) {
-  .c-welcome__para--desktop {
-    display: block;
   }
 }
 
@@ -1640,36 +1621,32 @@ body img.gform_ajax_spinner {
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
-}
-
-@media (min-width: 540px) {
-  .c-welcome__map-container {
-    height: 100vh;
-  }
+  margin-top: 3rem;
 }
 
 @media (min-width: 768px) {
   .c-welcome__map-container {
+    height: 100vh;
     padding: 0 4rem;
   }
 }
 
-@media (min-width: 540px) {
+@media (min-width: 768px) {
   .c-welcome__map-container .c-welcome__content-container {
     height: 100vh;
   }
 }
 
 .c-welcome__map {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  overflow: hidden;
-  display: none;
+  width: 100%;
 }
 
-@media (min-width: 540px) {
+@media (min-width: 768px) {
   .c-welcome__map {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    min-height: 300px;
     display: block;
     overflow: visible;
   }
@@ -1680,6 +1657,13 @@ body img.gform_ajax_spinner {
   width: 100%;
   max-width: 100%;
   height: auto;
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .c-welcome__map img {
+    display: block;
+  }
 }
 
 .down-arrow {
@@ -1692,7 +1676,7 @@ body img.gform_ajax_spinner {
   display: none;
 }
 
-@media (min-width: 540px) {
+@media (min-width: 768px) {
   .down-arrow {
     display: block;
   }
@@ -1731,7 +1715,7 @@ body img.gform_ajax_spinner {
   display: none;
 }
 
-@media (min-width: 540px) {
+@media (min-width: 768px) {
   .power-logo-container {
     display: block;
   }
@@ -1742,7 +1726,7 @@ body img.gform_ajax_spinner {
   height: 90px;
 }
 
-@media (min-width: 540px) {
+@media (min-width: 768px) {
   .power-logo {
     width: 330px;
     height: 90px;
@@ -1752,9 +1736,10 @@ body img.gform_ajax_spinner {
 .mediacom-logo-container {
   text-align: center;
   padding: 4rem 0;
+  position: relative;
 }
 
-@media (min-width: 540px) {
+@media (min-width: 768px) {
   .mediacom-logo-container {
     position: absolute;
     bottom: 0;
@@ -1768,12 +1753,11 @@ body img.gform_ajax_spinner {
   height: 100px;
 }
 
-@media (min-width: 540px) {
+@media (min-width: 768px) {
   .mediacom-logo {
     width: 220px;
     height: 110px;
     bottom: 0px;
-    position: relative;
   }
 }
 
@@ -1802,30 +1786,28 @@ body img.gform_ajax_spinner {
 }
 
 .map-item {
-  position: absolute;
-  width: 17px;
-  height: 17px;
+  position: relative;
+  height: 58px;
+  overflow: visible;
 }
 
-@media (min-width: 540px) {
+@media (min-width: 768px) {
   .map-item {
-    width: 21px;
-    height: 21px;
+    position: absolute;
+    width: 17px;
+    height: 17px;
   }
 }
 
 .marker {
   position: relative;
   z-index: 1;
-  display: inline-block;
-  width: 17px;
-  height: 17px;
-  line-height: 17px;
   text-align: center;
   text-decoration: none;
   border-radius: 50%;
-  background-color: #fff;
   transition: all 300ms;
+  color: #fff;
+  font-size: 2rem;
 }
 
 .marker svg {
@@ -1838,16 +1820,21 @@ body img.gform_ajax_spinner {
   width: 7px;
   height: 7px;
   fill: #E1005D;
+  display: none;
 }
 
-@media (min-width: 540px) {
+@media (min-width: 768px) {
   .marker {
     width: 21px;
     height: 21px;
+    display: inline-block;
+    background-color: #fff;
+    line-height: 21px;
   }
   .marker svg {
     width: 7px;
     height: 7px;
+    display: block;
   }
 }
 
@@ -1858,15 +1845,21 @@ body img.gform_ajax_spinner {
 .marker--active .marker {
   pointer-events: all;
   cursor: pointer;
-  background-color: #E1005D;
   transition: all .2s ease;
   z-index: 2;
+  color: #E1005D;
 }
 
 .marker--active .marker svg {
   fill: #fff;
   width: 11px;
   height: 11px;
+}
+
+@media (min-width: 768px) {
+  .marker--active .marker {
+    background-color: #E1005D;
+  }
 }
 
 .marker--active .marker:hover {
@@ -1890,6 +1883,13 @@ body img.gform_ajax_spinner {
   }
 }
 
+@media (min-width: 768px) {
+  .on-mobile {
+    display: none;
+    visibility: hidden;
+  }
+}
+
 .map-popup {
   position: relative;
   left: 50%;
@@ -1897,7 +1897,7 @@ body img.gform_ajax_spinner {
   z-index: 99;
   width: 260px;
   padding: 1.5rem;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: #000;
   transition: all 300ms ease-in;
   transform: translate(-50%, -50%);
   opacity: 0;
@@ -1905,14 +1905,18 @@ body img.gform_ajax_spinner {
   border-radius: 10px;
   text-align: left;
   color: #e6e6e6;
+  width: 90%;
+  border: solid 1px #333333;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .map-popup {
     position: absolute;
     left: -260px;
     width: 260px;
     transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.9);
+    border: none;
   }
 }
 
@@ -1930,11 +1934,21 @@ body img.gform_ajax_spinner {
 
 .marker--active .map-popup {
   color: #404040;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: #fff;
+}
+
+@media (min-width: 768px) {
+  .marker--active .map-popup {
+    background-color: rgba(255, 255, 255, 0.9);
+  }
 }
 
 .marker--active .map-popup .location-date::before {
   display: none;
+}
+
+.marker--active .close svg {
+  fill: #ccc;
 }
 
 .popup-title {
@@ -2067,4 +2081,17 @@ body img.gform_ajax_spinner {
 .files__link:hover {
   background-color: rgba(225, 0, 93, 0.8);
   color: #fff;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: block;
+}
+
+.close svg {
+  width: 10px;
+  height: 10px;
+  fill: #404040;
 }

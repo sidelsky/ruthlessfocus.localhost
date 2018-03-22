@@ -1,15 +1,4 @@
 
-.tml-login {
-
-	display: none;
-
-	@include breakpoint(569px) {
-		display: block;
-	}
-
-}
-
-
 .login {
   @extend %centre;
   background-image: url('img/background-home.jpg');

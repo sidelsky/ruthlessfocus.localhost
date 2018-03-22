@@ -22,6 +22,7 @@ $welcomeHeight: 100vh;
         // with height
         &--height {
             padding: $spacing--small $spacing--medium;
+            height: auto;
 
             @include breakpoint($medium) {
                 padding: $spacing--large $spacing--jumbo;
@@ -42,7 +43,7 @@ $welcomeHeight: 100vh;
     &__title-container {
         position: relative;
 
-        @include breakpoint($small) {
+        @include breakpoint($medium) {
             top: 50%;
             transform: translateY(-50%);
         }
@@ -59,7 +60,7 @@ $welcomeHeight: 100vh;
         font-weight: 700;
         text-transform: uppercase;
 
-        @include breakpoint($small){
+        @include breakpoint($medium){
             margin-bottom: $spacing--small;
         }
 
@@ -74,7 +75,7 @@ $welcomeHeight: 100vh;
         margin-bottom: $spacing--small;
         font-weight: 700;
 
-        @include breakpoint($small){
+        @include breakpoint($medium){
             margin-bottom: $spacing--large;
         }
     }
@@ -97,19 +98,19 @@ $welcomeHeight: 100vh;
                 margin-bottom: $spacing--tiny;
                 display: block;
             }
-            @include breakpoint($small){
+            @include breakpoint($medium){
                 display: none;
             }
 
         }
 
-        &--desktop {
-            display: none;
-            @include breakpoint($small){
-                display: block;
-            }
+        // &--desktop {
+        //     display: none;
+        //     @include breakpoint($medium){
+        //         display: block;
+        //     }
 
-        }
+        // }
 
     }
     
@@ -121,17 +122,15 @@ $welcomeHeight: 100vh;
         background-position: center center;
         background-size: cover;
         background-repeat: no-repeat;
+        margin-top: $spacing--medium;
 
-        @include breakpoint($small){
+        @include breakpoint($medium){
             height: $welcomeHeight;
-        }
-
-        @include breakpoint($medium) {
             padding: 0 $spacing--large;
         }
 
         .c-welcome__content-container {
-            @include breakpoint($small){
+            @include breakpoint($medium){
                 height: $welcomeHeight;
             }
         }
@@ -140,14 +139,15 @@ $welcomeHeight: 100vh;
 
 }
 
+//Welcome
 .c-welcome__map {
-    position: absolute;
-	top: 50%;
-    transform: translateY(-50%);
-    overflow: hidden;
-    display: none;
+    width: 100%;
 
-    @include breakpoint($small){
+    @include breakpoint($medium){
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        min-height: 300px;
         display: block;
         overflow: visible;
     }
@@ -158,6 +158,11 @@ $welcomeHeight: 100vh;
         width: 100%;
         max-width: 100%;
         height: auto;
+        display: none;
+
+        @include breakpoint($medium) {
+            display: block;
+        }
     }
 }
 
@@ -172,7 +177,7 @@ $welcomeHeight: 100vh;
     position: relative;
     display: none;
 
-    @include breakpoint($small){
+    @include breakpoint($medium){
         display: block;
     }
 
@@ -209,7 +214,7 @@ $welcomeHeight: 100vh;
     z-index: 80;
     display: none;
 
-    @include breakpoint($small){
+    @include breakpoint($medium){
         display: block;
     }
 }
@@ -218,7 +223,7 @@ $welcomeHeight: 100vh;
     width: 240px;
     height: 90px;
 
-    @include breakpoint($small) {
+    @include breakpoint($medium) {
         width: 330px;
         height: 90px;
     }
@@ -227,8 +232,9 @@ $welcomeHeight: 100vh;
 .mediacom-logo-container {
     text-align: center;
     padding: $spacing--large 0;
+    position: relative;
 
-    @include breakpoint($small) {
+    @include breakpoint($medium) {
         position: absolute;
         bottom: 0;
         left: 0;
@@ -240,11 +246,10 @@ $welcomeHeight: 100vh;
     width: 150px;
     height: 100px;
 
-    @include breakpoint($small) {
+    @include breakpoint($medium) {
         width: 220px;
         height: 110px;
         bottom: 0px;
-        position: relative;
     }
 
 }
