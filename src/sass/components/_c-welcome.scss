@@ -104,13 +104,13 @@ $welcomeHeight: 100vh;
 
         }
 
-        // &--desktop {
-        //     display: none;
-        //     @include breakpoint($medium){
-        //         display: block;
-        //     }
+        &--desktop {
+            display: none;
+            @include breakpoint($medium){
+                display: block;
+            }
 
-        // }
+        }
 
     }
     

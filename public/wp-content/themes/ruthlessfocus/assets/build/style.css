@@ -1616,6 +1616,16 @@ body img.gform_ajax_spinner {
   }
 }
 
+.c-welcome__para--desktop {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .c-welcome__para--desktop {
+    display: block;
+  }
+}
+
 .c-welcome__map-container {
   background-image: url("img/background-map.jpg");
   background-position: center center;
