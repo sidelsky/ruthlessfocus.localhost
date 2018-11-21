@@ -76,6 +76,9 @@ class ACFTC_Field {
 			$this->construct_from_posts_table( $field_data_obj );
 		}
 
+		// variable name that is used in code rendered
+		$this->var_name = $this->get_var_name( $this->name );
+
 		// partial to use for rendering
 		$this->render_partial = $this->get_render_partial();
 
@@ -146,6 +149,21 @@ class ACFTC_Field {
 
 	}
 
+	// Get the variable name
+		private function get_var_name( $name ) {
+
+			// Replace any hyphens with underscores
+			$var_name = str_replace('-', '_', $name);
+
+			// Replace any other special chars with underscores
+			$var_name = preg_replace('/[^A-Za-z0-9\-]/', '_', $var_name);
+
+			// Replace multiple underscores with single
+			$var_name = preg_replace('/_+/', '_', $var_name);
+
+			return $var_name;
+
+		}
 
 	// Get the path to the partial used for rendering the field
 	private function get_render_partial() {
@@ -173,8 +191,11 @@ class ACFTC_Field {
 
 		if ( !empty($this->type) ) {
 
-			// if the field is a tab or a message, bail early
-			if ( $this->type == 'tab' || $this->type == 'message' ) {
+			// Ignore these fields tyles
+			$ignore_field_types = array( 'tab', 'message', 'accordion', 'enhanced_message', 'row' );
+
+			// Bail early for these ignored field types
+			if ( in_array( $this->type, $ignore_field_types )) {
 				return;
 			}
 
@@ -198,7 +219,6 @@ class ACFTC_Field {
 				// open div for field code wrapper (used for the button etc)
 				echo '<div class="acftc-field-code" id="acftc-' . $this->quick_link_id . '">';
 
-
 				// copy button
 				echo '<a href="#" class="acftc-field__copy" title="Copy to Clipboard"></a>';
 
@@ -218,7 +238,7 @@ class ACFTC_Field {
 			}
 			// Field not supported at all (yet)
 			else {
-				echo $this->indent . htmlspecialchars( "<?php // The " . $this->type  . " field type is not supported in this verison of the plugin. ?>" ) . "\n";
+				echo $this->indent . htmlspecialchars( "<?php // The " . $this->type  . " field type is not supported in this version of the plugin. ?>" ) . "\n";
 				echo $this->indent . htmlspecialchars( "<?php // Contact http://www.hookturn.io to request support for this field type. ?>" ) . "\n";
 			}
 

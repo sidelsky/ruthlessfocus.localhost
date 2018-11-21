@@ -22,23 +22,6 @@
  * ███████║███████╗██║  ██║ ╚████╔╝ ██║ ╚═╝ ██║██║  ██║███████║██║  ██╗
  * ╚══════╝╚══════╝╚═╝  ╚═╝  ╚═══╝  ╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝
  */
+?>
 
-class Ai1wm_Extension_Filter extends FilterIterator {
-
-	protected $include = array();
-
-	public function __construct( Iterator $iterator, $include = array() ) {
-		parent::__construct( $iterator );
-
-		// Set include filter
-		$this->include = $include;
-	}
-
-	public function accept() {
-		if ( in_array( pathinfo( $this->getInnerIterator()->getFilename(), PATHINFO_EXTENSION ), $this->include ) ) {
-			return true;
-		}
-
-		return false;
-	}
-}
+<a href="https://servmask.com/products/webdav-extension" target="_blank">WebDAV</a>

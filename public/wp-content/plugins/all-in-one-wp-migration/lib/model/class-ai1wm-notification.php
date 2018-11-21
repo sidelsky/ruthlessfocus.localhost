@@ -23,19 +23,59 @@
  * ╚══════╝╚══════╝╚═╝  ╚═╝  ╚═══╝  ╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝
  */
 
-class Ai1wm_Import_Resolve {
+class Ai1wm_Notification {
 
-	public static function execute( $params ) {
+	public static function ok( $subject, $message ) {
+		// Enable notifications
+		if ( ! apply_filters( 'ai1wm_notification_ok_toggle', false ) ) {
+			return;
+		}
 
-		// Set progress
-		Ai1wm_Status::info( __( 'Resolving URL address...', AI1WM_PLUGIN_NAME ) );
+		// Set email
+		if ( ! ( $email = apply_filters( 'ai1wm_notification_ok_email', get_option( 'admin_email', false ) ) ) ) {
+			return;
+		}
 
-		// HTTP resolve
-		Ai1wm_Http::resolve( admin_url( 'admin-ajax.php?action=ai1wm_resolve' ) );
+		// Set subject
+		if ( ! ( $subject = apply_filters( 'ai1wm_notification_ok_subject', $subject ) ) ) {
+			return;
+		}
 
-		// Set progress
-		Ai1wm_Status::info( __( 'Done resolving URL address.', AI1WM_PLUGIN_NAME ) );
+		// Set message
+		if ( ! ( $message = apply_filters( 'ai1wm_notification_ok_message', $message ) ) ) {
+			return;
+		}
 
-		return $params;
+		// Send email
+		if ( ai1wm_is_scheduled_backup() ) {
+			wp_mail( $email, $subject, $message, array( 'Content-Type: text/html; charset=UTF-8' ) );
+		}
+	}
+
+	public static function error( $subject, $message ) {
+		// Enable notifications
+		if ( ! apply_filters( 'ai1wm_notification_error_toggle', false ) ) {
+			return;
+		}
+
+		// Set email
+		if ( ! ( $email = apply_filters( 'ai1wm_notification_error_email', get_option( 'admin_email', false ) ) ) ) {
+			return;
+		}
+
+		// Set subject
+		if ( ! ( $subject = apply_filters( 'ai1wm_notification_error_subject', $subject ) ) ) {
+			return;
+		}
+
+		// Set message
+		if ( ! ( $message = apply_filters( 'ai1wm_notification_error_message', $message ) ) ) {
+			return;
+		}
+
+		// Send email
+		if ( ai1wm_is_scheduled_backup() ) {
+			wp_mail( $email, $subject, $message, array( 'Content-Type: text/html; charset=UTF-8' ) );
+		}
 	}
 }

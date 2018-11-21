@@ -57,6 +57,7 @@
                     $adidas_video = get_field( 'adidas_video' );
                     $adidas_demo = get_field( 'adidas_demos' );
                     $adidas_zip = get_field( 'adidas_zip' );
+                    $adidas_plan = get_field( 'adidas_plan' );
 
                     // reebok
                     $reebok_team = get_field( 'reebok_team' );
@@ -70,6 +71,7 @@
                     $video = 'Video';
                     $demo = 'Demos';
                     $zip = 'Videos';
+                    $plan = 'Plan';
 
 
                     //$active_marker = $active === ( TRUE ) ? 'marker--active' : '';
@@ -123,6 +125,9 @@
                                         }
                                         if ( $adidas_zip ) {
                                             echo '<a class="files__link" href="'. $adidas_zip['url'] .'" target="_blank" onclick="track_zip_click();"><span>'. $zip .'</span></a>';
+                                        }
+                                        if ( $adidas_plan) {
+                                            echo '<a class="files__link" href="'. $adidas_plan['url'] .'" target="_blank" onclick="track_zip_click();"><span>'. $plan .'</span></a>';
                                         }
                                     echo '</div>';
                                 echo '</div>';

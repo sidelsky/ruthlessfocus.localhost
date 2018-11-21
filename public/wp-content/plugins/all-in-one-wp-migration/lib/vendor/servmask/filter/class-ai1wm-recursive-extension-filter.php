@@ -23,19 +23,28 @@
  * ╚══════╝╚══════╝╚═╝  ╚═╝  ╚═══╝  ╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝
  */
 
-class Ai1wm_Export_Resolve {
+class Ai1wm_Recursive_Extension_Filter extends RecursiveFilterIterator {
 
-	public static function execute( $params ) {
+	protected $include = array();
 
-		// Set progress
-		Ai1wm_Status::info( __( 'Resolving URL address...', AI1WM_PLUGIN_NAME ) );
+	public function __construct( RecursiveIterator $iterator, $include = array() ) {
+		parent::__construct( $iterator );
 
-		// HTTP resolve
-		Ai1wm_Http::resolve( admin_url( 'admin-ajax.php?action=ai1wm_resolve' ) );
+		// Set include filter
+		$this->include = $include;
+	}
 
-		// Set progress
-		Ai1wm_Status::info( __( 'Done resolving URL address.', AI1WM_PLUGIN_NAME ) );
+	public function accept() {
+		if ( $this->getInnerIterator()->isFile() ) {
+			if ( ! in_array( pathinfo( $this->getInnerIterator()->getFilename(), PATHINFO_EXTENSION ), $this->include ) ) {
+				return false;
+			}
+		}
 
-		return $params;
+		return true;
+	}
+
+	public function getChildren() {
+		return new self( $this->getInnerIterator()->getChildren(), $this->include );
 	}
 }

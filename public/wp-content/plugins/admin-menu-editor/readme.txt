@@ -3,8 +3,8 @@ Contributors: whiteshadow
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=A6P9S6CE3SRSW
 Tags: admin, dashboard, menu, security, wpmu
 Requires at least: 4.1
-Tested up to: 4.9.4
-Stable tag: 1.8.2
+Tested up to: 4.9
+Stable tag: 1.8.4
 
 Lets you edit the WordPress admin menu. You can re-order, hide or rename menus, add custom menus and more. 
 
@@ -62,6 +62,24 @@ Plugins installed in the `mu-plugins` directory are treated as "always on", so y
 3. Re-ordering menu items via drag and drop
 
 == Changelog ==
+
+= 1.8.5 =
+* Fixed a bug where very long submenus wouldn't be scrollable if the current item was one that was moved to the current submenu from a different top level menu.
+* Fixed an obscure bug where clicking on an item in the current submenu could cause the entire submenu to "jump" up or down.
+* Fixed AME not highlighting the correct menu item when there was a space in any of the query parameter values.
+* Fixed another bug where the plugin didn't highlight the correct item if it was the first item in a submenu and also a custom item.
+
+= 1.8.4 =
+* Added a "Documentation" link below the plugin description. For people concerned about the recent GDPR legislation, the documentation now includes a page explaining [how the plugin processes personal data](https://adminmenueditor.com/free-version-docs/about-data-processing-free-version/). Short version: It usually doesn't.
+* Tested with WP 4.9.6.
+
+= 1.8.3 =
+* Added a couple of tutorial links to the settings page.
+* Fixed a potential crash that was caused by a bug in the "WP Editor" plugin version 1.2.6.3.
+* Fixed some obsolete callback syntax that was still using "&$this".
+* Changed the order of some menu settings and added separators between groups of settings.
+* Removed the "Screen Options" panel from AME tabs that didn't need it like "Plugins".
+* Tested with WP 4.9.5.
 
 = 1.8.2 =
 * Fixed the PHP warning "count(): Parameter must be an array or an object that implements Countable in menu-editor-core.php".

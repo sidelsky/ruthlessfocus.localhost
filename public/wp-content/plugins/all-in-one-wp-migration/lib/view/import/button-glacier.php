@@ -22,15 +22,6 @@
  * ███████║███████╗██║  ██║ ╚████╔╝ ██║ ╚═╝ ██║██║  ██║███████║██║  ██╗
  * ╚══════╝╚══════╝╚═╝  ╚═╝  ╚═══╝  ╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝
  */
+?>
 
-class Ai1wm_Http_Factory {
-
-	public static function create( $type ) {
-		if ( $type === 'curl' ) {
-			return new Ai1wm_Http_Curl;
-		}
-
-		return new Ai1wm_Http_Stream;
-	}
-
-}
+<a href="https://servmask.com/products/amazon-glacier-extension" target="_blank">Amazon Glacier</a>

@@ -23,32 +23,37 @@
  * ╚══════╝╚══════╝╚═╝  ╚═╝  ╚═══╝  ╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝
  */
 
-abstract class Ai1wm_Http_Abstract {
+class Ai1wm_Message {
 
-	protected $headers = array(
-		'Accept'          => '*/*',
-		'Accept-Encoding' => '*',
-		'Accept-Charset'  => '*',
-		'Accept-Language' => '*',
-		'User-Agent'      => 'Mozilla/5.0',
-	);
-
-	public function __construct() {
-		// Set user agent
-		if ( isset( $_SERVER['HTTP_USER_AGENT'] ) ) {
-			$this->headers['User-Agent'] = $_SERVER['HTTP_USER_AGENT'];
+	public static function flash( $type, $message ) {
+		if ( ( $messages = get_option( AI1WM_MESSAGES, array() ) ) !== false ) {
+			return update_option( AI1WM_MESSAGES, array_merge( $messages, array( $type => $message ) ) );
 		}
+
+		return false;
 	}
 
-	public function set_header( $key, $value ) {
-		$this->headers[ $key ] = $value;
+	public static function has( $type ) {
+		if ( ( $messages = get_option( AI1WM_MESSAGES, array() ) ) ) {
+			if ( isset( $messages[ $type ] ) ) {
+				return true;
+			}
+		}
 
-		return $this;
+		return false;
 	}
 
-	public function get_header( $key ) {
-		return $this->headers[ $key ];
-	}
+	public static function get( $type ) {
+		$message = null;
+		if ( ( $messages = get_option( AI1WM_MESSAGES, array() ) ) ) {
+			if ( isset( $messages[ $type ] ) && ( $message = $messages[ $type ] ) ) {
+				unset( $messages[ $type ] );
+			}
 
-	abstract public function get( $url, $blocking = false );
+			// Set messages
+			update_option( AI1WM_MESSAGES, $messages );
+		}
+
+		return $message;
+	}
 }
