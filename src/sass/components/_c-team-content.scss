@@ -1,0 +1,80 @@
+.c-team-content {
+   lost-flex-container: row;
+   lost-column: 12/12;
+
+   //Column
+   &__column {
+      outline: solid 1px red;
+
+      &:nth-last-of-type(1) {
+         lost-column: 8/12;
+      }
+
+      &:nth-last-of-type(2) {
+         lost-column: 4/12;
+      }
+
+   }
+
+   //Thumb
+   &__thumb {
+      display: block;
+   }
+
+   .c-team-list__person-list__title {
+      padding: $spacing--small $spacing--small $spacing--tiny $spacing--small;
+   }
+
+   //Thumb Detail
+   &__thumb-detail {
+      color: darken($inactive-grey, 10%);
+      padding: 0 $spacing--small;
+   }
+
+   //Meta
+   &__meta {
+
+   }
+
+   //Title
+   &__title {
+      color: $pink;
+      font-family: $font-primary--bold;
+      @include set-font-size(1.6rem, 1.6rem, 1.6rem);
+      margin-bottom: 0;
+      padding: 0 0 $spacing--small;
+   }
+
+   //The Content
+   &__the-content {
+      background-color: lighten($inactive-grey, 35%);
+      padding: $spacing--small;
+
+      p {
+         margin-bottom: $spacing--small;
+      }
+   }
+
+
+   //Inner
+   &__inner {
+      lost-flex-container: row;
+      lost-column: 12/12;
+   }
+
+   //Inner Column
+   &__inner-column {
+
+      outline: solid 1px red;
+
+      &:nth-last-of-type(1) {
+         lost-column: 4/12;
+      }
+
+      &:nth-last-of-type(2) {
+         lost-column: 8/12;
+      }
+
+   }
+
+}

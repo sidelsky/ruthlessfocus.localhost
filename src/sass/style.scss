@@ -40,6 +40,7 @@
 @import 'utilities/u-gradient';
 @import 'utilities/u-animation';
 @import 'utilities/u-centre';
+@import 'utilities/u-container';
 
 //Components
 @import 'components/c-hamburger';
@@ -51,6 +52,8 @@
 @import 'components/c-marker';
 @import 'components/c-map-popup';
 @import 'components/c-navigation';
+@import 'components/c-team-list';
+@import 'components/c-team-content';
 
 // Partials
 @import 'partials/app';

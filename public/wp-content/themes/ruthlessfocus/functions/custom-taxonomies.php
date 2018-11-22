@@ -20,8 +20,7 @@
               'singular_name' => 'Location',
               'slug' => 'location',
               'with_front' => true,
-              'hierarchical' => true,
-              "cptp_permalink_structure" => "/%help_centre_category%/",
+              'hierarchical' => true
           )
 
       );
