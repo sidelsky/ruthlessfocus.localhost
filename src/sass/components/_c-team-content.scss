@@ -1,10 +1,11 @@
 .c-team-content {
    lost-flex-container: row;
    lost-column: 12/12;
+   @include set-font-size(1.7rem, 1.7rem, 1.7rem);
+   line-height: 1.5;
 
    //Column
    &__column {
-      outline: solid 1px red;
 
       &:nth-last-of-type(1) {
          lost-column: 8/12;
@@ -55,6 +56,28 @@
       }
    }
 
+   &__fun-fact,
+   &__achievement {
+      padding: $spacing--small;
+   }
+
+   //Fun fact
+   &__fun-fact {
+
+   }
+
+   //Fun fact
+   &__achievement {
+      background-color: $pink;
+      color: $white;
+
+      .c-team-content__title {
+         color: currentColor;
+      }
+
+   }
+   
+
 
    //Inner
    &__inner {
@@ -64,8 +87,6 @@
 
    //Inner Column
    &__inner-column {
-
-      outline: solid 1px red;
 
       &:nth-last-of-type(1) {
          lost-column: 4/12;

@@ -776,7 +776,8 @@ a {
   }
 }
 
-/*------------------------------------*    FONT FAMILIES
+/*------------------------------------*\
+    FONT FAMILIES
 \*------------------------------------*/
 @font-face {
   font-family: "muli-regular";
@@ -2505,10 +2506,20 @@ body img.gform_ajax_spinner {
 .c-team-content {
   lost-flex-container: row;
   lost-column: 12/12;
+  font-size: 1.7rem;
+  line-height: 1.5;
 }
 
-.c-team-content__column {
-  outline: solid 1px red;
+@media (min-width: 768px) {
+  .c-team-content {
+    font-size: 1.7rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .c-team-content {
+    font-size: 1.7rem;
+  }
 }
 
 .c-team-content__column:nth-last-of-type(1) {
@@ -2561,13 +2572,22 @@ body img.gform_ajax_spinner {
   margin-bottom: 2rem;
 }
 
+.c-team-content__fun-fact, .c-team-content__achievement {
+  padding: 2rem;
+}
+
+.c-team-content__achievement {
+  background-color: #E1005D;
+  color: #fff;
+}
+
+.c-team-content__achievement .c-team-content__title {
+  color: currentColor;
+}
+
 .c-team-content__inner {
   lost-flex-container: row;
   lost-column: 12/12;
-}
-
-.c-team-content__inner-column {
-  outline: solid 1px red;
 }
 
 .c-team-content__inner-column:nth-last-of-type(1) {

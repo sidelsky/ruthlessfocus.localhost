@@ -1,4 +1,8 @@
-<?php include("header.php"); ?>
+<?php include("header.php"); 
+
+global $post
+
+?>
 
 
 <section class="u-section">
@@ -17,7 +21,7 @@
 
          <div class="c-team-list__header">
             <div class="c-team-list__column">
-               <h1 class="c-team-list__title">Meet the UK client team</h1>
+               <h1 class="c-team-list__title">Meet: <?= get_the_title($post->ID); ?></h1>
             </div>
          </div>
 
@@ -44,8 +48,18 @@
                   <?php the_content(); ?>
                </div>
                <div class="c-team-content__inner">
-                  <div class="c-team-content__inner-column">sdsdds</div>
-                  <div class="c-team-content__inner-column">sdsdds</div>
+                  <div class="c-team-content__inner-column">
+                     <div class="c-team-content__fun-fact">
+                        <h3 class="c-team-content__title">Fun fact</h3>
+                        <?php the_field('fun_fact'); ?>
+                     </div>
+                  </div>
+                  <div class="c-team-content__inner-column">
+                     <div class="c-team-content__achievement">
+                        <h3 class="c-team-content__title">Favourite sport, team or proudest sporting achievement</h3>
+                        <?php the_field('achievement'); ?>
+                     </div>
+                  </div>
                </div>
             </div>
 
