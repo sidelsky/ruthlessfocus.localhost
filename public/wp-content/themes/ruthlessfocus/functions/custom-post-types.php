@@ -55,9 +55,6 @@
 		//End post type
 
 
-
-
-
 	}
 
 	add_action('init', 'createPostTypes');

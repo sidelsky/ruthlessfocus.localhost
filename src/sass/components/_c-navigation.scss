@@ -3,6 +3,8 @@
    position: relative;
    z-index: 1;
    padding: $spacing--small 0;
+   width: 100%;
+   margin-bottom: $spacing--x-medium;
    
    @include breakpoint($medium) {
       padding: $spacing--jumbo 0;
@@ -39,32 +41,35 @@
 .c-sub-navigation {
    position: relative;
    z-index: 1;
-   padding: $spacing--small 0;
+   padding: $spacing--tiny 0;
    
    @include breakpoint($medium) {
-      padding: $spacing--jumbo 0;
+      //padding: $spacing--jumbo 0;
   }
 
    //Item
    &__item {
       color: $inactive-grey;
-      $dimensions: 68px;
-      display: block;
+      $dimensions: 30px;
+      display: inline-block;
       border: solid 1px currentColor;
+      height: $dimensions;
       //width: $dimensions;
       //height: $dimensions;
       line-height: $dimensions;
       text-align: center;
-      border-radius: 100px;
+      border-radius: 50px;
       @include set-font-size(1.3rem, 1.3rem, 1.3rem);
       margin: $spacing--x-tiny $spacing--x-tiny;
       pointer-events: none;
       cursor: default;
-      background-color: black;
+      //padding: $spacing--tiny;
+      width: 100px;
 
       span {
-         display: inline-block;
-         line-height: 1;
+         display: block;
+         //display: inline-block;
+         //line-height: 1;
       }
 
    }
@@ -74,14 +79,14 @@
 
 
 //Active
-.active-term {
+.c-navigation__item.active-term {
    color: $white;
    border-color: $pink;
    pointer-events: all;
    cursor: pointer;
 }
 
-.focused-term {
+.c-navigation__item.focused-term.focused-term {
    color: $white;
    border-color: $pink;
    pointer-events: all;
@@ -89,4 +94,18 @@
    background-color: $pink;
 }
 
+// On page list
+.c-navigation--team-list {
+   padding: 0 0 $spacing--small;
 
+      .c-navigation__item {
+         background-color: transparent;
+      }
+
+      .active-term {
+         color: $pink;
+         border-color: $pink;
+         pointer-events: all;
+         cursor: pointer;
+      }
+}
