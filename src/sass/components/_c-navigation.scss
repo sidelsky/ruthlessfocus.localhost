@@ -5,7 +5,7 @@
    padding: $spacing--small 0;
    width: 100%;
    margin-bottom: $spacing--x-medium;
-   
+
    @include breakpoint($medium) {
       padding: $spacing--jumbo 0;
   }
@@ -42,7 +42,7 @@
    position: relative;
    z-index: 1;
    padding: $spacing--tiny 0;
-   
+
    @include breakpoint($medium) {
       //padding: $spacing--jumbo 0;
   }
@@ -86,7 +86,8 @@
    cursor: pointer;
 }
 
-.c-navigation__item.focused-term.focused-term {
+.c-navigation__item.focused-term.focused-term,
+.c-sub-navigation__item.focused-term.focused-term {
    color: $white;
    border-color: $pink;
    pointer-events: all;

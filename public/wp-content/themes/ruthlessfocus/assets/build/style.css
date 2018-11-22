@@ -2365,7 +2365,8 @@ body img.gform_ajax_spinner {
   cursor: pointer;
 }
 
-.c-navigation__item.focused-term.focused-term {
+.c-navigation__item.focused-term.focused-term,
+.c-sub-navigation__item.focused-term.focused-term {
   color: #fff;
   border-color: #E1005D;
   pointer-events: all;
