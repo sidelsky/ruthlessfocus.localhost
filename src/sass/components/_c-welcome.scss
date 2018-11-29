@@ -84,8 +84,8 @@ $welcomeHeight: 100vh;
     &__para {
         color: $white;
         font-family: $font-primary;
-        @include set-font-size(1.6rem, 2.7rem, 2.7rem);
-        line-height: 1.25;
+        @include set-font-size(1.6rem, 1.8rem, 2.0rem);
+        line-height: 1.4;
         
         strong {
             font-weight: 700;

@@ -8,9 +8,9 @@
             //$subtitle = get_field( 'subtitle' );
 
             $title = 'Welcome to';
-            $subtitle = 'Welcome to our online portal and interactive presentation map';
-            $paragraph_desktop = 'Collateral including presentation files, information on teams and videos. Text to be updated and added.';
-            $paragraph_mobile = 'Collateral including presentation files, information on teams and videos. Text to be updated and added.. <br /><br /><small style="font-size: 12px;">NOTE: For full content please display on your desktop.</small>';
+            $subtitle = 'Welcome to MediaCom’s online portal';
+            $paragraph_desktop = 'We have brought together the cultures of the adidas groupe and MediaCom by creating this online portal that connects all our teams across the globe, and introduces you to over 200 adidas Groupe dedicated MediaCommers from our network. <br /><br />To learn more about the people that are working on your business day to day, and what drives them to deliver outstanding work for you, please click on the region below to get started and then filter by market. By scrolling down this page you still have access to our interactive map and pitch collateral.';
+            $paragraph_mobile = 'We have brought together the cultures of the adidas groupe and MediaCom by creating this online portal that connects all our teams across the globe, and introduces you to over 200 adidas Groupe dedicated MediaCommers from our network. <br /><br />To learn more about the people that are working on your business day to day, and what drives them to deliver outstanding work for you, please click on the region below to get started and then filter by market. By scrolling down this page you still have access to our interactive map and pitch collateral.</br></br><small style="font-size: 12px;">NOTE: For full content please display on your desktop.</small>';
 
             echo '<div class="c-welcome__title-container">';
                 echo '<div data-welcome-message>';
