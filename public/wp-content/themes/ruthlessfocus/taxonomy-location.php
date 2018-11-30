@@ -70,8 +70,11 @@
 
 				<div class="c-team-list__header">
 					<div class="c-team-list__column">
-						<h2 class="h2 faq-cat"><?= $name; ?></h2>
-						<h1 class="c-team-list__title">Meet the UK client team</h1>
+						<?php 
+							//echo $current_term->slug;
+							//echo $current_child_term->slug;
+						?>
+						<h1 class="c-team-list__title">Meet the <span style="text-transform: uppercase;"><?= $current_child_term->slug ?></span> client team</h1>
 						<h2 class="c-team-list__subtitle">Click below to view team biographies</h2>
 					</div>
 				</div>
